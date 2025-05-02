@@ -49,10 +49,10 @@
         <div class="image-content">
           {% if block.settings.image_content_image != blank and block.settings.image_content_image_url != blank %}
           <a href="{{ block.settings.image_content_image_url }}">
-            <img src="{{ block.settings.image_content_image | img_url: 'master' }}" alt="{{ block.settings.image_content_image.alt }}">
+            <img src="{{ block.settings.image_content_image | img_url: 'master' }}" alt="{{ block.settings.image_content_image.alt }}" loading="lazy">
           </a>
           {% elsif block.settings.image_content_image != blank %}
-          <img src="{{ block.settings.image_content_image | img_url: 'master' }}" alt="{{ block.settings.image_content_image.alt }}">
+          <img src="{{ block.settings.image_content_image | img_url: 'master' }}" alt="{{ block.settings.image_content_image.alt }}" loading="lazy">
           {% else %}
           {{ 'image' | placeholder_svg_tag: 'custom-svg-image' }}
           {% endif %}

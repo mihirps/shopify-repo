@@ -1,5 +1,3 @@
-
-
 // Section with Editor
 $(document).on('shopify:section:load', function(e){ 
   $('#' + e.target.id).find('[data-section]').sectionJs();
@@ -595,7 +593,10 @@ $.fn.VideoSlider = function() {
   
 };
 
-
+// Find and comment out any custom lazy loading implementation like:
+// initLazyLoad: function() {
+//   $('.lazy-image').lazyload({...});
+// },
 
 (function($) {
   "use strict";

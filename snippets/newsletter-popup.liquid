@@ -49,9 +49,9 @@
     <div class="subscribe_area area-2">
       <div class="subscribe-image">
         {% if settings.newsletter_bg_img %}
-        <img class="lazyload" data-sizes="auto" data-src="{{ settings.newsletter_bg_img | img_url: '320x400', crop: 'center' }}" width="320" height="400">
+        <img class="lazyload" data-sizes="auto" data-src="{{ settings.newsletter_bg_img | img_url: '320x400', crop: 'center' }}" width="320" height="400" loading="lazy">
         {% else %}
-        <img class="lazyload" data-src="https://via.placeholder.com/320x400">
+        <img class="lazyload" data-src="https://via.placeholder.com/320x400" loading="lazy">
         {% endif %}
       </div>
       <div class="subscribe-content">
@@ -119,9 +119,9 @@
     <div class="subscribe_area area-2">
       <div class="subscribe-image">
         {% if settings.newsletter_bg_img %}
-        <img class="lazyload" data-src="{{ settings.newsletter_bg_img | img_url: '320x400', crop: 'center' }}" width="320" height="400">
+        <img class="lazyload" data-src="{{ settings.newsletter_bg_img | img_url: '320x400', crop: 'center' }}" width="320" height="400" loading="lazy">
         {% else %}
-        <img class="lazyload" data-src="https://via.placeholder.com/320x400">
+        <img class="lazyload" data-src="https://via.placeholder.com/320x400" loading="lazy">
         {% endif %}
       </div>
       <div class="subscribe-content">

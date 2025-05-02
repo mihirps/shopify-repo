@@ -100,12 +100,12 @@
               <div class="app-image">
                 {%- if block.settings.app_image_1 -%}
                 <a href="{{ block.settings.app_image_1_url }}" target="_blank">
-                  <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.app_image_1 | img_url: 'medium' }}" alt="{{ block.settings.app_image_1.alt }}">
+                  <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.app_image_1 | img_url: 'medium' }}" alt="{{ block.settings.app_image_1.alt }}" loading="lazy">
                 </a>
                 {%- endif -%}
                 {%- if block.settings.app_image_2 -%}
                 <a href="{{ block.settings.app_image_2_url }}" target="_blank">
-                  <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.app_image_2 | img_url: 'medium' }}" alt="{{ block.settings.app_image_2.alt }}">
+                  <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.app_image_2 | img_url: 'medium' }}" alt="{{ block.settings.app_image_2.alt }}" loading="lazy">
                 </a>
                 {%- endif -%}
               </div>
@@ -167,12 +167,12 @@
           </div>
           {%- endcomment -%}
           <div class="footer-payment">
-            <img class="lazyload" data-src="{{ block.settings.payment_image | img_url: 'large' }}" alt="{{ block.settings.payment_image.alt }}" />
+            <img class="lazyload" data-src="{{ block.settings.payment_image | img_url: 'large' }}" alt="{{ block.settings.payment_image.alt }}" loading="lazy" />
           </div>
           {%- elsif shop.enabled_payment_types -%}
           <div class="footer-payment">
             {%- for type in shop.enabled_payment_types -%}
-            <img class="lazyload" data-sizes="auto" data-src="{{ type | payment_type_img_url }}" height="35" alt="{{ type }}" />
+            <img class="lazyload" data-sizes="auto" data-src="{{ type | payment_type_img_url }}" height="35" alt="{{ type }}" loading="lazy" />
             {%- endfor -%}
           </div>
           {%- endif -%}

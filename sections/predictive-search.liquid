@@ -14,6 +14,7 @@
                 src="{{ product.featured_media | img_url: '150x' }}"
                 alt="{{ product.featured_media.alt }}"
                 width="50"
+                loading="lazy"
                 height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
               >
             {%- endif -%}
