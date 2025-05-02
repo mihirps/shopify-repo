@@ -1,30 +1,27 @@
-// Section with Editor
+// Section with Editor - Optimized with requestAnimationFrame
 $(document).on('shopify:section:load', function(e){ 
   $('#' + e.target.id).find('[data-section]').sectionJs();
 }).ready(function() {
   // Initialize critical sections immediately
   const criticalSections = ['HeaderSection', 'ProductTemplate', 'CollectionTemplate'];
-  $('[data-section]').each(function() {
-    const sectionType = $(this).data('section');
-    if (criticalSections.includes(sectionType)) {
-      $(this).sectionJs();
-    }
-  });
-
-  // Lazy load non-critical sections
-  const sections = $('[data-section]:not(.initialized)');
+  const sections = $('[data-section]');
+  
+  // Process sections with requestAnimationFrame
   const processSections = () => {
-    sections.each(function() {
-      if (isElementInViewport(this)) {
-        $(this).sectionJs().addClass('initialized');
-      }
+    requestAnimationFrame(() => {
+      sections.each(function() {
+        const sectionType = $(this).data('section');
+        if (criticalSections.includes(sectionType) || isElementInViewport(this)) {
+          $(this).sectionJs().addClass('initialized');
+        }
+      });
     });
   };
 
   // Initial check
   processSections();
 
-  // Debounced scroll handler
+  // Debounced scroll handler with requestAnimationFrame
   let scrollTimeout;
   $(window).on('scroll', function() {
     clearTimeout(scrollTimeout);
@@ -32,54 +29,56 @@ $(document).on('shopify:section:load', function(e){
   });
 });
 
-// Check if element is in viewport
+// Optimized viewport check
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+  
   return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect.top >= -rect.height &&
+    rect.left >= -rect.width &&
+    rect.bottom <= windowHeight + rect.height &&
+    rect.right <= windowWidth + rect.width
   );
 }
 
-// Optimized section initialization
-$.fn.sectionJs = function(){
+// Optimized section initialization with caching
+const sectionMap = {
+  "SlideShow": ($this) => $this.find('.hero-slider-active').SlideShow(),
+  "TabWithProduct": ($this) => $this.find('.product-carousel-4').TabWithProduct(),
+  "CollectionBanner": ($this) => $this.find('.product-banner-carousel').CollectionBanner(),
+  "FeatureCollection": ($this) => $this.find('.product-carousel-4_2').FeatureCollectionActive(),
+  "TestimonialSection": ($this) => {
+    $this.find('.testimonial-content-carousel').TestimonialContent();
+    $this.find('.testimonial-thumb-carousel').TestimonialThumb();
+  },
+  "BannerWithCollection": ($this) => $this.BannerWithCollection(),
+  "LatestBlog": ($this) => $this.find('.blog-carousel-active').LatestBlog(),
+  "BrandLogo": ($this) => $this.find('.brand-logo-carousel').BrandLogoActive(),
+  "CollectionThumbnail": ($this) => $this.find('.group-list-carousel--3').CollectionThumbnail(),
+  "HotDeals": ($this) => $this.find('.deals-carousel-active').HotDeals(),
+  "CollectionBannerSlideshow": ($this) => $this.find('.hero-slider-active-4').CollectionBannerSlideshow(),
+  "HeaderSection": ($this) => $this.HeaderSection(),
+  "CollectionTemplate": ($this) => $this.CollectionTemplateActivation(),
+  "InstagramSlider": ($this) => $this.InstagramSection(),
+  "ProductTemplate": ($this) => $this.ProductTemplate(),
+  "FooterSection": ($this) => $this.FooterSection(),
+  "FeaturedProduct": ($this) => $this.FeaturedProduct(),
+  "InstagramAlternativeSlider": ($this) => $this.find('.instagram-alternative-carousel').InstagramAlternativeSlider(),
+  "VideoSlider": ($this) => $this.VideoSlider()
+};
+
+$.fn.sectionJs = function() {
   const $this = this;
   const sectionType = $this.data('section');
   
-  // Cache DOM queries
-  const sectionMap = {
-    "SlideShow": () => $this.find('.hero-slider-active').SlideShow(),
-    "TabWithProduct": () => $this.find('.product-carousel-4').TabWithProduct(),
-    "CollectionBanner": () => $this.find('.product-banner-carousel').CollectionBanner(),
-    "FeatureCollection": () => $this.find('.product-carousel-4_2').FeatureCollectionActive(),
-    "TestimonialSection": () => {
-      $this.find('.testimonial-content-carousel').TestimonialContent();
-      $this.find('.testimonial-thumb-carousel').TestimonialThumb();
-    },
-    "BannerWithCollection": () => $this.BannerWithCollection(),
-    "LatestBlog": () => $this.find('.blog-carousel-active').LatestBlog(),
-    "BrandLogo": () => $this.find('.brand-logo-carousel').BrandLogoActive(),
-    "CollectionThumbnail": () => $this.find('.group-list-carousel--3').CollectionThumbnail(),
-    "HotDeals": () => $this.find('.deals-carousel-active').HotDeals(),
-    "CollectionBannerSlideshow": () => $this.find('.hero-slider-active-4').CollectionBannerSlideshow(),
-    "HeaderSection": () => $this.HeaderSection(),
-    "CollectionTemplate": () => $this.CollectionTemplateActivation(),
-    "InstagramSlider": () => $this.InstagramSection(),
-    "ProductTemplate": () => $this.ProductTemplate(),
-    "FooterSection": () => $this.FooterSection(),
-    "FeaturedProduct": () => $this.FeaturedProduct(),
-    "InstagramAlternativeSlider": () => $this.find('.instagram-alternative-carousel').InstagramAlternativeSlider(),
-    "VideoSlider": () => $this.VideoSlider()
-  };
-
   if (sectionMap[sectionType]) {
-    sectionMap[sectionType]();
+    sectionMap[sectionType]($this);
   }
 };
 
-// Optimized Slideshow
+// Optimized Slideshow with lazy loading
 $.fn.SlideShow = function() {
   const $SlideShowVAR = this;
   const defaultOptions = {
@@ -101,7 +100,7 @@ $.fn.SlideShow = function() {
 
   $SlideShowVAR.slick(defaultOptions);
 
-  // Background image loading with fallback
+  // Optimized background image loading with Intersection Observer
   const bgSelector = $(".bg-img-active");
   if ('IntersectionObserver' in window) {
     const bgObserver = new IntersectionObserver((entries) => {
@@ -113,7 +112,10 @@ $.fn.SlideShow = function() {
           bgObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { 
+      rootMargin: '50px 0px',
+      threshold: 0.1 
+    });
 
     bgSelector.each(function() {
       bgObserver.observe(this);
@@ -128,7 +130,7 @@ $.fn.SlideShow = function() {
   }
 };
 
-// Optimized Header Section
+// Optimized Header Section with event delegation
 $.fn.HeaderSection = function() {
   // Cache DOM elements
   const $body = $("body");
@@ -148,18 +150,24 @@ $.fn.HeaderSection = function() {
     $minicart.removeClass('show');
   });
 
-  // Search trigger
+  // Search trigger with debounce
+  let searchTimeout;
   $(".search-trigger").on('click', function() {
-    $(".header-search-box").toggleClass('search-box-open');
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      $(".header-search-box").toggleClass('search-box-open');
+    }, 100);
   });
 
-  // Optimized scroll handler
+  // Optimized scroll handler with requestAnimationFrame
   let scrollTimeout;
   $(window).on('scroll', function() {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-      const scroll = $(window).scrollTop();
-      $sticky.toggleClass("is-sticky", scroll >= 300);
+      requestAnimationFrame(() => {
+        const scroll = $(window).scrollTop();
+        $sticky.toggleClass("is-sticky", scroll >= 300);
+      });
     }, 100);
   });
 
@@ -174,7 +182,7 @@ $.fn.HeaderSection = function() {
     $offCanvasWrapper.removeClass('open');
   });
 
-  // Optimized mobile menu
+  // Optimized mobile menu with event delegation
   const $offCanvasNavSubMenu = $mobileMenu.find('.dropdown');
   $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i></i></span>');
   $offCanvasNavSubMenu.slideUp();
