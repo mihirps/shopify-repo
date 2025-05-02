@@ -341,10 +341,10 @@
     <div class="img-container widget-collapse-hide">
       {%- if block.settings.banner_image != blank and block.settings.banner_image_url != blank -%}
       <a href="{{ block.settings.banner_image_url }}">
-        <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.banner_image | img_url: 'grande' }}" alt="{{ block.settings.banner_image.alt }}">
+        <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.banner_image | img_url: 'grande' }}" alt="{{ block.settings.banner_image.alt }}" loading="lazy">
       </a>
       {%- elsif block.settings.banner_image != blank -%}
-      <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.banner_image | img_url: 'grande' }}" alt="{{ block.settings.banner_image.alt }}">
+      <img class="lazyload" data-sizes="auto" data-src="{{ block.settings.banner_image | img_url: 'grande' }}" alt="{{ block.settings.banner_image.alt }}" loading="lazy">
       {%- else -%}
       {{ 'collection-' | append: i | placeholder_svg_tag: 'banner-svg-image' }}
       {%- endif -%}

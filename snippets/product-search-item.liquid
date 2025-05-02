@@ -17,7 +17,7 @@
 {% if item.featured_image %}
 <div class="search-item">
   <div class="search-item-image">
-    <a href="{{ item.url | within: collection }}"><img src="{{ item.featured_image.src | img_url: 'large' }}" alt=""></a>
+    <a href="{{ item.url | within: collection }}"><img src="{{ item.featured_image.src | img_url: 'large' }}" alt="" loading="lazy"></a>
     
     <div class="product-badge">
       {%- if sold_out -%}

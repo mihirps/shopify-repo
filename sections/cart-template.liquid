@@ -25,7 +25,7 @@
               <tbody>
                 {% for item in cart.items %}
                 <tr>
-                  <td class="pro-thumbnail"><a href="{{ item.url }}"><img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" /></a></td>
+                  <td class="pro-thumbnail"><a href="{{ item.url }}"><img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" loading="lazy" /></a></td>
                   <td class="pro-title">
                     <a href="{{ item.url }}">{{ item.product.title }}</a>
                     {%- unless item.variant.title contains 'Default' -%}

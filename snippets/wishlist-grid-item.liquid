@@ -3,7 +3,7 @@
     <div class="product-tile--tile-media">
       <a class="tile-media--media-link" href="{{ product.url }}">
         <div class="media-link--image">
-          <img class="image--main lazyload" data-sizes="auto" data-src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title }}">
+          <img class="image--main lazyload" data-sizes="auto" data-src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title }}" loading="lazy">
         </div>
       </a>
     </div>

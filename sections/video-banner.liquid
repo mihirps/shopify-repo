@@ -31,9 +31,9 @@
           <div class="static_video">
             {% unless section.settings.video_type_handle == 'autoplay_banner' %}
             {% if section.settings.video_thumbnail_image %}
-            <img class="img_static" src="{{ section.settings.video_thumbnail_image | img_url: '1170x500', crop: 'center' }}" alt="image" />
+            <img class="img_static" src="{{ section.settings.video_thumbnail_image | img_url: '1170x500', crop: 'center' }}" alt="image" loading="lazy" />
             {% else %}
-            <img class="img_static" src="https://via.placeholder.com/1170x500" alt="image" />
+            <img class="img_static" src="https://via.placeholder.com/1170x500" alt="image" loading="lazy" />
             {% endif %}
             {% endunless %}
             {% if section.settings.video_type_handle == 'popup_banner' %}

@@ -162,7 +162,7 @@
   </div>
   {%- if product.available and section.settings.sticky_cart_enable -%}
   <form class="product-addtocart-sticky" action="/cart/add" method="post">
-    <img src="{{ product.featured_image | img_url: 'thumb' }}">
+    <img src="{{ product.featured_image | img_url: 'thumb' }}" loading="lazy">
     <h2>{{ product.title | truncate: 30 }}</h2>
     <select name="id">
       {% for variant in product.variants %}

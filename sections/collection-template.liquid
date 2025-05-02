@@ -29,6 +29,14 @@
               {%- render 'product-list-item', product: product -%}
             </div>
             {%- endfor -%}
+            {% for product in collection.products %}
+              <img 
+                src="{{ product.featured_image | img_url: '500x' }}" 
+                alt="{{ product.featured_image.alt | escape }}" 
+                loading="lazy" 
+                width="{{ product.featured_image.width }}"
+                height="{{ product.featured_image.height }}">
+            {% endfor %}
           </div>
           {%- render 'pagination', paginate: paginate -%}
         </div>
