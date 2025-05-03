@@ -1,4 +1,4 @@
-{% liquid
+  {% liquid
   assign theme_rtl = false
   if settings.rtl_enable and settings.langauges_rtl == blank
     assign theme_rtl = true
@@ -27,40 +27,51 @@
   {%- if settings.favicon != blank -%}
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
   {%- endif -%}
-
-  <!-- Preconnect to critical domains -->
-  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com">
+  <link rel="preconnect" href="https://ajax.googleapis.com/">
   <link rel="dns-prefetch" href="https://cdn.shopify.com">
-  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-
-  <!-- Preload critical CSS -->
-  <link rel="preload" as="style" href="{{ 'timber.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" as="style" href="{{ 'vendor.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="{{ 'timber.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
-  </noscript>
-
-  <!-- Defer non-critical CSS -->
-  <link rel="preload" as="style" href="{{ 'slick.min.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ 'timber.css' | asset_url }}">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" as="style">
+  <link rel="preload" as="style" href="{{ 'vendor.css' | asset_url }}">
+  
+  <link rel="preload" as="style" href="{{ 'slick.min.css' | asset_url }}">
+  
+  <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}">
   {%- if settings.dark_enable -%}
-  <link rel="preload" as="style" href="{{ 'dark.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ 'dark.css' | asset_url }}">
   {%- endif -%}
   {% if theme_rtl %}
-  <link rel="preload" as="style" href="{{ 'theme-rtl.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ 'theme-rtl.css' | asset_url }}">
   {%- endif -%}
-  <link rel="preload" as="style" href="{{ 'skin-and-color.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Preload critical JavaScript -->
+  <link rel="preload" as="style" href="{{ 'skin-and-color.css' | asset_url }}">
+  {%- comment -%}
+  <link rel="preload" as="font" href="{{ 'Pe-icon-7-stroke.woff?d7yf1v' | asset_url }}" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" as="font" href="{{ 'fontawesome-webfont.woff2?v=4.7.0' | asset_url }}" type="font/woff2" crossorigin="anonymous">
+  {%- endcomment -%}
   <link rel="preload" href="{{ 'core-js.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'timber.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'the-final-countdown.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'lazysizes.min.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'slick.min.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'recent-view.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'compare-product.js' | asset_url }}" as="script">
+  {%- if settings.wishlist_enable -%}
+  <link rel="preload" href="{{ 'wishlist.js' | asset_url }}" as="script">
+  {%- endif -%}
   <link rel="preload" href="{{ 'option_selection.js' | shopify_asset_url }}" as="script">
   <link rel="preload" href="{{ 'api.jquery.js' | shopify_asset_url }}" as="script">
-
+  <link rel="preload" href="{{ 'cart.api.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'fastclick.min.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'timber.js' | asset_url }}" as="script">
+  {%- if template == 'index' and settings.newsletter_popup_enable -%}
+  {%- if settings.one_day_popup_enable -%}
+  <link rel="preload" href="{{ 'newsletter-js.js' | asset_url }}" as="script">
+  {%- endif -%}
+  {%- endif -%}
+  {%- if settings.currency_enable or settings.compare_product_enalbe -%}
+  <link rel="preload" href="{{ '//cdn.shopify.com/s/javascripts/currencies.js' }}" as="script">
+  <link rel="preload" href="{{ 'jquery.currencies.min.js' | asset_url }}" as="script">
+  {%- endif -%}
   <!-- Title and description -->
   {%- capture seo_title -%}
   {{ page_title }}
@@ -78,20 +89,16 @@
   {%- if page_description -%}
   <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
-
   <!-- Helpers -->
   {%- render 'social-meta-tags', product: product, article: article -%}
-  
   <!-- CSS -->
   {%- render 'header-css' -%}
   {% if theme_rtl %}
   {{ 'theme-rtl.css' | asset_url | stylesheet_tag }}
   {% endif %}
-  
   <!-- Header hook for plugins -->
   {{ content_for_header }}
   {% render 'oldIE-js' %}
-  
   <!-- JS -->
   {%- render 'header-js' -%}
   {% if template contains 'customers' %}
@@ -131,33 +138,7 @@
   {%- if settings.compare_product_enalbe -%}
   {%- render 'compare-popup' -%}
   {%- endif -%}
-  
-  <!-- Load non-critical JavaScript asynchronously -->
-  <script>
-    function loadScript(src, callback) {
-      var script = document.createElement('script');
-      script.src = src;
-      script.async = true;
-      if (callback) script.onload = callback;
-      document.body.appendChild(script);
-    }
-
-    // Load core scripts first
-    loadScript('{{ "core-js.js" | asset_url }}', function() {
-      loadScript('{{ "theme.js" | asset_url }}');
-      loadScript('{{ "timber.js" | asset_url }}');
-    });
-
-    // Load template-specific scripts
-    {% if template == 'index' and settings.newsletter_popup_enable %}
-    loadScript('{{ "newsletter-js.js" | asset_url }}');
-    {% endif %}
-
-    // Load optional features
-    {% if settings.currency_enable or settings.compare_product_enalbe %}
-    loadScript('{{ "//cdn.shopify.com/s/javascripts/currencies.js" }}');
-    loadScript('{{ "jquery.currencies.min.js" | asset_url }}');
-    {% endif %}
-  </script>
+  <!-- Necessary JS -->
+  {%- render 'footer-js' with content_for_layout as content_for_layout -%}
 </body>
 </html>
