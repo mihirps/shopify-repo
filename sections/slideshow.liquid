@@ -103,7 +103,7 @@
       <div class="slide-image-mobile-device">
         <div id="block-{{ block.id }}" class="hero-slider-item bg-img bg-img-active"
              {% if block.settings.slide_image_mobile %} 
-             data-bg="{{ block.settings.slide_image_mobile | img_url: 'original' }}" loading=”lazy”
+             data-bg="{{ block.settings.slide_image_mobile | img_url: 'original' }}" loading=”eager”
              {% endif %}>
           {{ slide-code }} 
         </div>
