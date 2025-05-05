@@ -50,12 +50,14 @@
       {%- endif -%}
       {%- if settings.product_quickview_enalbe -%}
       {%- unless product.description contains '[affiliate_link]' or product.tags contains 'contact-us' -%}
-      <button type="button"
+      <a href="#" 
          class="action-plus quickview-btn" 
-         onclick="quiqview('{{ product.handle | handleize }}')" 
-         aria-label="{{ settings.quickview_title }}">
+         onclick="quiqview('{{ product.handle | handleize }}'); return false;" 
+         data-toggle="tooltip"
+         data-placement="left"
+         title="{{ settings.quickview_title }}">
         <i class="pe-7s-search"></i>
-      </button>
+      </a>
       {%- endunless -%}
       {%- endif -%}
       {%- endunless -%}
