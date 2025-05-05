@@ -2,31 +2,25 @@
   {%- if product.available -%}
   {%- if settings.product_cart_type == 'ajax_cart_drawer' -%}
   <button type="submit" class="ajax-spin-cart ajax-spin-cart-drawer btn btn-cart2" id="AddToCart">
-    <span>
       <span class="cart-title" id="AddToCartText">{{ settings.cart_button_title }}</span>
       <span class="cart-loading">{{ settings.wait_title }}</span>
       <span class="cart-added">{{ settings.added_title }}</span>
       <span class="cart-unavailable">{{ settings.unavailable_title }}</span>
-    </span>
   </button>
   {%- elsif settings.product_cart_type == 'ajax_spin_cart' -%}
   <button type="submit" class="ajax-spin-cart btn btn-cart2" id="AddToCart">
-    <span>
       <span class="cart-title" id="AddToCartText">{{ settings.cart_button_title }}</span>
       <span class="cart-loading">{{ settings.wait_title }}</span>
       <span class="cart-added">{{ settings.added_title }}</span>
       <span class="cart-unavailable">{{ settings.unavailable_title }}</span>
-    </span>
   </button>
   {%- elsif settings.product_cart_type == 'ajax_popup_cart' or settings.product_cart_type == 'without_ajax_cart' -%}
   <button type="submit" class="btn btn-cart2" id="AddToCart">
-    <span>
       {% if current_variant.inventory_policy == "continue" and current_variant.inventory_quantity <= 0 %}
       <span class="cart-title" id="AddToCartText">{{ settings.preorder_button_title }}</span>
       {%- else -%}
       <span class="cart-title" id="AddToCartText">{{ settings.cart_button_title }}</span>
       {%- endif -%}
-    </span>
   </button>
   {%- endif -%}
   {%- unless settings.product_cart_type == 'without_ajax_cart' -%}

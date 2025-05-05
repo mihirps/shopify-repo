@@ -90,25 +90,19 @@
       {%- if product.available -%}
       {%- if product.variants.size > 1 -%}
       <a href="{{ product.url | within: collection }}" class="btn btn-cart">
-        <span>
           <span>{{ settings.select_option_title }}</span>
-        </span>
       </a>
       {%- else -%}
       {%- if settings.product_cart_type == 'ajax_spin_cart' -%}
       <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="ajax-spin-cart btn btn-cart">
-        <span>
           <span class="cart-title">{{ settings.cart_button_title }}</span>
           <span class="cart-loading">{{ settings.wait_title }}</span>
           <span class="cart-added">{{ settings.added_title }}</span>
           <span class="cart-unavailable">{{ settings.unavailable_title }}</span>
-        </span>
       </a>
       {%- elsif settings.product_cart_type == 'ajax_popup_cart' -%}
       <a href="javascript:void(0);" onclick="{{ func }}; return false;" class="btn btn-cart">
-        <span>
           <span class="cart-title">{{ settings.cart_button_title }}</span>
-        </span>
       </a>
       {%- elsif settings.product_cart_type == 'without_ajax_cart' -%}
       <form action="/cart/add" method="post" enctype="multipart/form-data">
@@ -118,9 +112,7 @@
           {% endfor %}
         </select>
         <button type="submit" class="btn btn-cart">
-          <span>
             <span class="cart-title">{{ settings.cart_button_title }}</span>
-          </span>
         </button>
       </form>
       {%- endif -%}
