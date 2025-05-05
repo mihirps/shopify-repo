@@ -54,8 +54,19 @@
       {%- endif -%}
       {%- if settings.product_quickview_enalbe -%}
       {%- unless product.description contains '[affiliate_link]' or product.tags contains 'contact-us' -%}
-      <a class="action-plus" title="{{ settings.quickview_title }}" data-toggle="modal" data-target="#quickViewModal" href="javascript:void(0);" 
+      {% comment %} <a class="action-plus" title="{{ settings.quickview_title }}" data-toggle="modal" data-target="#quickViewModal" href="javascript:void(0);" 
          onclick="quiqview('{{ product.handle | handleize }}')"><span data-toggle="tooltip" data-placement="left" title="{{ settings.quickview_title }}"><i class="pe-7s-search"></i></span>
+      </a> {% endcomment %}
+      <a 
+        class="action-plus" 
+        title="{{ settings.quickview_title }}" 
+        data-toggle="tooltip" 
+        data-placement="left"
+        data-target="#quickViewModal" 
+        href="javascript:void(0);" 
+        onclick="quiqview('{{ product.handle | handleize }}')"
+      >
+        <i class="pe-7s-search"></i>
       </a>
       {%- endunless -%}
       {%- endif -%}
