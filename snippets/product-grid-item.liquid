@@ -20,7 +20,7 @@
       <a href="{{ product.url | within: collection }}" class="lazyload-wraper-position" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;">
         {%- render 'product-responsive-image-3' with image: product.featured_image, similar_image_size: similar_image_size, image_class: "pri-img similar-size-image lazyload-main-image" -%}
         {%- for image in product.images limit: 1 offset: 1 -%}
-        {%- render 'product-responsive-image-3' with image: image, similar_image_size: similar_image_size, image_class: "sec-img similar-size-image lazyload-main-image" -%}
+        {%- render 'product-responsive-image-3' with image: image, similar_image_size: similar_image_size, image_class: "sec-img similar-size-image lazyload-main-image mmm" -%}
         {%- endfor -%}
       </a>
       {%- else -%}
