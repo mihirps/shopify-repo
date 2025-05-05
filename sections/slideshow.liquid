@@ -92,8 +92,8 @@
     {%- endcapture -%}
     <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
       <div class="slide-image-all-device{% if block.settings.slide_image_mobile %} sid-none{% endif %}">
-        <div id="block-{{ block.id }}" class="hero-slider-item {% if block.settings.slide_image %}bg-img {% else %}bg-img bg-img-active{% endif %}"
-             {% if block.settings.slide_image %}
+        <div id="block-{{ block.id }}" class="hero-slider-item {% if block.settings.slide_image %}bg-img lazyload{% else %}bg-img bg-img-active{% endif %}"
+             {% if block.settings.slide_image %} loading=”lazy”
              data-bgset="{% render 'responsive-bg-image', image: block.settings.slide_image %}"
              {% else %}data-bg="https://via.placeholder.com/1920x670"{% endif %}>
           {{ slide-code }} 
@@ -103,7 +103,7 @@
       <div class="slide-image-mobile-device">
         <div id="block-{{ block.id }}" class="hero-slider-item bg-img bg-img-active"
              {% if block.settings.slide_image_mobile %} 
-             data-bg="{{ block.settings.slide_image_mobile | img_url: 'original' }}" 
+             data-bg="{{ block.settings.slide_image_mobile | img_url: 'original' }}" loading=”lazy”
              {% endif %}>
           {{ slide-code }} 
         </div>
