@@ -13,12 +13,10 @@
                 class="mb-30 col-lg-{{ section.settings.product_column }} col-md-{{ section.settings.product_column_md }} col-{{ section.settings.product_column_xs }}"
                 style="margin-bottom: 30px;"
               >
-                <div>
                   <div>
                     {{ 'collection-' | append: i | placeholder_svg_tag: 'collection-svg-image' }}
                   </div>
                   <h6>Collection Title</h6>
-                </div>
               </div>
             {%- else -%}
               <div
@@ -56,12 +54,10 @@
                   class="col-lg-{{ section.settings.product_column }} col-md-{{ section.settings.product_column_md }} col-{{ section.settings.product_column_xs }}"
                   style="margin-bottom: 30px;"
                 >
-                  <div>
                     <div>
                       {{ 'collection-' | append: i | placeholder_svg_tag: 'collection-svg-image' }}
                     </div>
                     <h6>Collection Title</h6>
-                  </div>
                 </div>
               {%- else -%}
                 <div
@@ -118,13 +114,11 @@
                   class="mb-30 col-lg-{{ section.settings.product_column }} col-md-{{ section.settings.product_column_md }} col-{{ section.settings.product_column_xs }}"
                   style="margin-bottom: 30px;"
                 >
-                  <div>
                     {{ product_item | placeholder_svg_tag: 'product-svg-image' }}
                     <h6>Product Title</h6>
                     <div class="">
                       <span>$99.99</span>
                     </div>
-                  </div>
                 </div>
                 {% if a == 7 %}
                   {% assign a = 1 %}
