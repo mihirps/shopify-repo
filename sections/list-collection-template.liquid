@@ -25,9 +25,13 @@
               >
                 <div class="collection-item">
                   <div class="collection-image">
-                    {%- if featured_product.image.src -%}
+                    {%- if featured_product.image -%}
                       <a href="{{ featured_product.url }}"
-                        ><img src="{{ featured_product.image.src | img_url: 'large' }}"
+                        ><img src="{{ featured_product.image | image_url: 'large' }}"
+                         width="{{ featured_product.image.width }}"
+                         height="{{ featured_product.image.height }}"
+                         loading="lazy"
+                         alt="{{ featured_product.image.alt | escape }}"
                       ></a>
                     {%- else -%}
                       {{ 'collection-' | append: i | placeholder_svg_tag: 'collection-svg-image' }}
@@ -66,8 +70,12 @@
                 >
                   <div class="collection-item">
                     <div class="collection-image">
-                      {%- if collection.image.src -%}
-                        <a href="{{ collection.url }}"><img src="{{ collection.image.src | img_url: 'large' }}"></a>
+                      {%- if collection.image -%}
+                        <a href="{{ collection.url }}"><img src="{{ collection.image | image_url: 'large' }}" 
+                          width="{{ collection.image.width }}"
+                          height="{{ collection.image.height }}"
+                          loading="lazy"
+                          alt="{{ collection.image.alt | escape }}"></a>
                       {%- else -%}
                         {{ 'collection-' | append: i | placeholder_svg_tag: 'collection-svg-image' }}
                       {%- endif -%}
