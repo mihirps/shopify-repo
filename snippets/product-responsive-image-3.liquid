@@ -11,5 +11,5 @@
 {{ image.width }}
 {%- endcapture -%}
 {%- assign image_widths = image_widths | strip -%}
-<img loading="eager" id="Image-{{ image.id }}-{{ responsive_image_counter }}" class="blur-up popup_cart_image responsive-image__image {{ image_class }}" {% if settings.universal_image_size_enable %}src="{{ image | img_url: similar_image_size, crop: 'center' }}"{% else %}{% endif %} data-src="{{ img_url }}" data-widths="[{{ image_widths }}]" data-aspectratio="{{ image.aspect_ratio }}" data-sizes="auto" tabindex="-1" alt="{{ image.alt | escape }}" {{ image_attributes }}>
+<img loading="eager" fetchpriority="high" id="Image-{{ image.id }}-{{ responsive_image_counter }}" class="blur-up popup_cart_image responsive-image__image {{ image_class }}" {% if settings.universal_image_size_enable %}src="{{ image | img_url: similar_image_size, crop: 'center' }}"{% else %}{% endif %} data-src="{{ img_url }}" data-widths="[{{ image_widths }}]" data-aspectratio="{{ image.aspect_ratio }}" data-sizes="auto" tabindex="-1" alt="{{ image.alt | escape }}" {{ image_attributes }}>
 <noscript><img class="{{ image_class }}" src="{{ image | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}"></noscript>
