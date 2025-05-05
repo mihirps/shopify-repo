@@ -18,14 +18,14 @@
       {%- assign similar_image_size = settings.similar_image_size_handle -%}
       {%- if product.images.size > 1 and settings.hover_image_change_enable -%}
       <a href="{{ product.url | within: collection }}" class="lazyload-wraper-position" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;">
-        {%- render 'product-responsive-image-3' with image: product.featured_image, similar_image_size: similar_image_size, image_class: "pri-img similar-size-image lazyload-main-image NNN" -%}
+        {%- render 'product-responsive-image-3' with image: product.featured_image, similar_image_size: similar_image_size, image_class: "pri-img similar-size-image lazyload-main-image" -%}
         {%- for image in product.images limit: 1 offset: 1 -%}
-        {%- render 'product-responsive-image-3' with image: image, similar_image_size: similar_image_size, image_class: "sec-img similar-size-image lazyload-main-image mmm" -%}
+        {%- render 'product-responsive-image-3' with image: image, similar_image_size: similar_image_size, image_class: "sec-img similar-size-image lazyload-main-image" -%}
         {%- endfor -%}
       </a>
       {%- else -%}
       <a href="{{ product.url | within: collection }}" class="lazyload-wraper-position" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;">
-        {%- render 'product-responsive-image-3' with image: product.featured_image, similar_image_size: similar_image_size, image_class: "similar-size-image lazyload-main-image AAA" -%}
+        {%- render 'product-responsive-image-3' with image: product.featured_image, similar_image_size: similar_image_size, image_class: "similar-size-image lazyload-main-image" -%}
       </a>
       {%- endif -%}
       {%- else -%}
@@ -62,13 +62,8 @@
       {%- endif -%}
       {%- if settings.product_quickview_enalbe -%}
       {%- unless product.description contains '[affiliate_link]' or product.tags contains 'contact-us' or template == 'product' or recommendations.performed -%}
-      <a href="#" 
-         class="action-plus quickview-btn" 
-         onclick="quiqview('{{ product.handle | handleize }}'); return false;" 
-         data-toggle="tooltip"
-         data-placement="left"
-         title="{{ settings.quickview_title }}">
-        <i class="pe-7s-search"></i>
+      <a class="action-plus" title="{{ settings.quickview_title }}" data-toggle="modal" data-target="#quickViewModal" href="javascript:void(0);" 
+         onclick="quiqview('{{ product.handle | handleize }}')"><span data-toggle="tooltip" data-placement="left" title="{{ settings.quickview_title }}"><i class="pe-7s-search"></i></span>
       </a>
       {%- endunless -%}
       {%- endif -%}

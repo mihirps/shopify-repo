@@ -3174,35 +3174,3 @@ a.modal-nav::before, a.video-nav::before {
   padding-right: 0;
   padding-left: 10px;
 }
-
-/* Fix for quickview button */
-.action-plus.quickview-btn {
-  background: white;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 1px 0.5px rgba(0, 0, 0, 0.05);
-}
-
-.action-plus.quickview-btn .pe-7s-search {
-  font-size: 20px;
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: block;
-}
-
-/* For better touch targets on mobile */
-@media (max-width: 767px) {
-  .action-plus.quickview-btn {
-    width: 44px;
-    height: 44px;
-  }
-  
-  .action-plus.quickview-btn .pe-7s-search {
-    font-size: 22px;
-  }
-}
