@@ -521,6 +521,7 @@
       "block_order": [
         "162597869786f671cc-0"
       ],
+      "disabled": true,
       "settings": {
         "section_title": "Latest Blog",
         "section_sub_title": "Check our latest blog",
