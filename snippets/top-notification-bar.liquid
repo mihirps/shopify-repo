@@ -6,7 +6,9 @@
         <div class="notification-entry text-center">
           <div class="notification-entry-inner">
             {%- if settings.notification_text != blank -%}
-            <span class="notification-text">{{ settings.notification_text }}</span>
+            <div class="notification-text" data-notification-text style="opacity: 0; transition: opacity 0.3s ease-in-out;">
+              {{ settings.notification_text }}
+            </div>
             {%- endif -%}
             
             {%- if settings.countdown_timer_enable -%}
@@ -29,25 +31,52 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const notificationBar = document.querySelector('[data-notification-bar]');
+    const notificationText = document.querySelector('[data-notification-text]');
+    
     if (notificationBar) {
       // Use requestAnimationFrame to ensure smooth rendering
       requestAnimationFrame(() => {
         notificationBar.style.display = 'block';
+        // Fade in the notification text after a short delay
+        if (notificationText) {
+          setTimeout(() => {
+            notificationText.style.opacity = '1';
+          }, 100);
+        }
       });
     }
   });
 </script>
-{%- endif -%}
 
 <style>
   .top-notification-bar {
     position: relative;
     z-index: 100;
+    will-change: transform;
+    transform: translateZ(0);
   }
   .notification-entry {
     padding: 10px 0;
   }
   .notification-text {
     display: inline-block;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+  .notification-button-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .notification-button {
+    display: inline-block;
+    text-decoration: none;
+  }
+  @media (max-width: 767px) {
+    .notification-text {
+      font-size: 12px;
+    }
   }
 </style>
+{%- endif -%}
