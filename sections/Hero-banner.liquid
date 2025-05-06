@@ -4,6 +4,28 @@
     {%- when 'banner' -%}
     {%- if block.settings.block_color_enable -%}
     <style>
+      {% for block in section.blocks %}
+        {% case block.type %}
+        {% when 'banner' %}
+        #block-{{ block.id }} .hero-banner-content {
+          position: relative;
+          z-index: 2;
+          padding-top: {{ block.settings.content_padding_top | default: 40 }}px;
+          padding-bottom: {{ block.settings.content_padding_bottom | default: 40 }}px;
+          padding-left: {{ block.settings.content_padding_left | default: 0 }}px;
+          padding-right: {{ block.settings.content_padding_right | default: 0 }}px;
+        }
+        
+        @media (max-width: 767px) {
+          #block-{{ block.id }} .hero-banner-content {
+            padding-top: {{ block.settings.content_padding_top | divided_by: 1.5 | round | default: 25 }}px;
+            padding-bottom: {{ block.settings.content_padding_bottom | divided_by: 1.5 | round | default: 25 }}px;
+            padding-left: {{ block.settings.content_padding_left | default: 0 }}px;
+            padding-right: {{ block.settings.content_padding_right | default: 0 }}px;
+          }
+        }
+        {% endcase %}
+      {% endfor %}
       #block-{{ block.id }} .hero-banner-content .banner-title{
         color: {{ block.settings.title_color }};
       }
@@ -518,6 +540,50 @@
               "id": "button_bg_hover_color",
               "label": "Button BG Hover Color",
               "default": "#222222"
+            },
+            {
+              "type": "header",
+              "content": "Content Spacing"
+            },
+            {
+              "type": "range",
+              "id": "content_padding_top",
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "label": "Content Padding Top",
+              "unit": "px",
+              "default": 40
+            },
+            {
+              "type": "range",
+              "id": "content_padding_bottom",
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "label": "Content Padding Bottom",
+              "unit": "px",
+              "default": 40
+            },
+            {
+              "type": "range",
+              "id": "content_padding_left",
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "label": "Content Padding Left",
+              "unit": "px",
+              "default": 0
+            },
+            {
+              "type": "range",
+              "id": "content_padding_right",
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "label": "Content Padding Right",
+              "unit": "px",
+              "default": 0
             }
           ]
         },
