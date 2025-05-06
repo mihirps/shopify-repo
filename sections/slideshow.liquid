@@ -112,44 +112,28 @@
     </div> {% endcomment %}
     <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
       <div class="slide-image-all-device{% if block.settings.slide_image_mobile %} sid-none{% endif %}">
-        {% if block.settings.slide_image %}
-          <img
-            id="block-{{ block.id }}"
-            class="hero-slider-item bg-img"
-            src="{{ block.settings.slide_image | img_url: '2048x2048' }}"
-            width="1920"
-            height="670"
-            alt="Hero Slide"
-            loading="eager"
-            fetchpriority="high"
-          >
-        {% else %}
-          <img
-            id="block-{{ block.id }}"
-            class="hero-slider-item bg-img"
-            src="https://via.placeholder.com/1920x670"
-            width="1920"
-            height="670"
-            alt="Placeholder Slide"
-            loading="eager"
-            fetchpriority="high"
-          >
-        {% endif %}
-        {{ slide-code }}
+        <div
+          id="block-{{ block.id }}"
+          class="hero-slider-item bg-img bg-img-active"
+          style="background-image: url('{{ block.settings.slide_image | img_url: '2048x2048' }}');"
+          data-bgset=""
+          loading="eager"
+        >
+          {{ slide-code }}
+        </div>
       </div>
     
       {% if block.settings.slide_image_mobile %}
         <div class="slide-image-mobile-device">
-          <img
+          <div
             id="block-{{ block.id }}-mobile"
-            class="hero-slider-item bg-img"
-            src="{{ block.settings.slide_image_mobile | img_url: 'original' }}"
-            width="768"
-            height="400"
-            alt="Hero Slide Mobile"
+            class="hero-slider-item bg-img bg-img-active"
+            style="background-image: url('{{ block.settings.slide_image_mobile | img_url: 'original' }}');"
+            data-bg=""
             loading="lazy"
           >
-          {{ slide-code }}
+            {{ slide-code }}
+          </div>
         </div>
       {% endif %}
     </div>
