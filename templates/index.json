@@ -15,8 +15,6 @@
         "16259186029869ff02-0": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Up_To_25_Off_2.png",
-            "slide_image_mobile": "shopify://shop_images/Up_To_25_Off_360_x_350_px_2.png",
             "slide_title": "<i>Mother's Day <span>Special</span></i>",
             "slide_content": "25% Off All Items",
             "slide_button_title": "Shop & Save for Mom",
@@ -815,8 +813,8 @@
         "banner_RcLaUP": {
           "type": "banner",
           "settings": {
-            "banner_image": "shopify://shop_images/Up_To_25_Off_2.png",
-            "banner_image_mobile": "shopify://shop_images/Up_To_25_Off_360_x_350_px_2.png",
+            "banner_image": "shopify://shop_images/hero-web.webp",
+            "banner_image_mobile": "shopify://shop_images/hero-mobile.webp",
             "banner_title": "Banner Title",
             "banner_content": "Banner content here",
             "banner_button_title": "Shop Now",
@@ -825,11 +823,11 @@
             "content_position": "content_left",
             "content_animation": "animation_1",
             "block_color_enable": false,
-            "title_color": "#222",
-            "sub_title_color": "#555",
-            "button_text_color": "#fff",
+            "title_color": "#222222",
+            "sub_title_color": "#555555",
+            "button_text_color": "#ffffff",
             "button_bg_color": "#c29958",
-            "button_text_hover_color": "#fff",
+            "button_text_hover_color": "#ffffff",
             "button_bg_hover_color": "#222222"
           }
         },
@@ -853,7 +851,7 @@
       "settings": {
         "banner_large_height_enable": true,
         "section_color_enable": false,
-        "overlay_color": "#fff",
+        "overlay_color": "#ffffff",
         "overlay_color_opatity": 0.7
       }
     }
