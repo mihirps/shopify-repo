@@ -762,3 +762,13 @@
       }
     }
     {% endschema %}
+
+{%- assign lcp_image = section.blocks[0].settings.banner_image -%}
+{%- if lcp_image != blank -%}
+  <link rel="preload" as="image" href="{{ lcp_image | img_url: '1800x' }}" fetchpriority="high">
+{%- endif -%}
+
+<link rel="preload" href="{{ 'style.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
+<link rel="preload" href="{{ 'vendor.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}"></noscript>
