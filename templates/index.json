@@ -123,6 +123,7 @@
       "block_order": [
         "162755092131163f43-0"
       ],
+      "disabled": true,
       "settings": {
         "about_image": "shopify://shop_images/heating-metal-ring.jpg",
         "title": "About Us",
