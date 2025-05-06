@@ -28,7 +28,7 @@
     <style>
       @media (max-width: 767px) {
         .hero-overlay:before {
-          background-color: {{ section.settings.overlay_color | hex_to_rgba: section.settings.overlay_color_opatity }};
+          {% comment %} background-color: {{ section.settings.overlay_color | hex_to_rgba: section.settings.overlay_color_opatity }}; {% endcomment %}
         }
       }
     </style>
@@ -235,7 +235,7 @@
       "settings": [
         {
           "type": "checkbox",
-          
+
           "id": "banner_large_height_enable",
           "label": "Banner Large Height Enable",
           "default": false
