@@ -1,20 +1,54 @@
-<div class="top-notification-bar" loading="lazy">
+{%- if settings.notification_text != blank or settings.countdown_timer_enable or settings.notification_button_name != blank -%}
+<div class="top-notification-bar" style="display: none;" data-notification-bar>
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="notification-entry text-center">
           <div class="notification-entry-inner">
-            {{ settings.notification_text }}
-            {% if settings.countdown_timer_enable %}
+            {%- if settings.notification_text != blank -%}
+            <span class="notification-text">{{ settings.notification_text }}</span>
+            {%- endif -%}
+            
+            {%- if settings.countdown_timer_enable -%}
             <div class="product-countdown grid-countdown topbar-countdown" data-countdown="{{ settings.countdown_date }}" loading="lazy"></div> 
-            {% endif %}
-            {% if settings.notification_button_name != '' %}
-            <p><a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a></p>
-            {% endif %}
+            {%- endif -%}
+            
+            {%- if settings.notification_button_name != blank -%}
+            <div class="notification-button-wrapper">
+              <a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a>
+            </div>
+            {%- endif -%}
           </div>
-          <button class="notification-close-btn"><i class="pe-7s-close"></i></button>
+          <button class="notification-close-btn" aria-label="Close notification"><i class="pe-7s-close"></i></button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const notificationBar = document.querySelector('[data-notification-bar]');
+    if (notificationBar) {
+      // Use requestAnimationFrame to ensure smooth rendering
+      requestAnimationFrame(() => {
+        notificationBar.style.display = 'block';
+      });
+    }
+  });
+</script>
+{%- endif -%}
+
+<style>
+  .top-notification-bar {
+    position: relative;
+    z-index: 100;
+    background: #fff; /* or your desired background color */
+  }
+  .notification-entry {
+    padding: 10px 0;
+  }
+  .notification-text {
+    display: inline-block;
+  }
+</style>
