@@ -514,7 +514,7 @@
         ],
         "settings": {
           "copy_ritht_text_enable": true,
-          "copy_ritht_text": "<p>Copyright © 2021 <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a> | Built with <strong>Corano</strong> by <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a>.</p>",
+          "copy_ritht_text": "<span>Copyright © 2021 <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a> | Built with <strong>Corano</strong> by <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a>.</span>",
           "section_color_enable": false,
           "footer_top_bg_color": "#f7f7f7",
           "footer_top_color": "#555555",
