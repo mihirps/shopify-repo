@@ -1,51 +1,59 @@
 {%- if settings.notification_text != blank or settings.countdown_timer_enable or settings.notification_button_name != blank -%}
-<div id="notification-bar-placeholder" style="display: none;"></div>
-
 <script>
-  // Defer notification bar creation and rendering
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      const placeholder = document.getElementById('notification-bar-placeholder');
-      if (placeholder) {
-        const notificationBar = document.createElement('div');
-        notificationBar.className = 'top-notification-bar';
-        notificationBar.innerHTML = `
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="notification-entry text-center">
-                  <div class="notification-entry-inner">
-                    {%- if settings.notification_text != blank -%}
-                    {%- assign clean_text = settings.notification_text | strip_html | strip -%}
-                    <div class="notification-text" data-notification-text>
-                      {%- if clean_text contains '<p>' -%}
-                        {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
-                      {%- else -%}
-                        {{ clean_text }}
-                      {%- endif -%}
-                    </div>
-                    {%- endif -%}
-                    
-                    {%- if settings.countdown_timer_enable -%}
-                    <div class="product-countdown grid-countdown topbar-countdown" data-countdown="{{ settings.countdown_date }}" loading="lazy"></div> 
-                    {%- endif -%}
-                    
-                    {%- if settings.notification_button_name != blank -%}
-                    <div class="notification-button-wrapper">
-                      <a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a>
-                    </div>
-                    {%- endif -%}
-                  </div>
-                  <button class="notification-close-btn" aria-label="Close notification"><i class="pe-7s-close"></i></button>
+  // Store notification content
+  const notificationContent = {
+    text: {{ settings.notification_text | strip_html | strip | json }},
+    countdown: {% if settings.countdown_timer_enable %}true{% else %}false{% endif %},
+    countdownDate: {{ settings.countdown_date | json }},
+    buttonName: {{ settings.notification_button_name | json }},
+    buttonUrl: {{ settings.notification_button_url | json }}
+  };
+
+  // Create and inject notification bar after page load
+  function createNotificationBar() {
+    const bar = document.createElement('div');
+    bar.className = 'top-notification-bar';
+    bar.innerHTML = `
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="notification-entry text-center">
+              <div class="notification-entry-inner">
+                <div class="notification-text" data-notification-text></div>
+                ${notificationContent.countdown ? `
+                <div class="product-countdown grid-countdown topbar-countdown" data-countdown="${notificationContent.countdownDate}" loading="lazy"></div>
+                ` : ''}
+                ${notificationContent.buttonName ? `
+                <div class="notification-button-wrapper">
+                  <a class="notification-button" href="${notificationContent.buttonUrl}" loading="lazy">${notificationContent.buttonName}</a>
                 </div>
+                ` : ''}
               </div>
+              <button class="notification-close-btn" aria-label="Close notification"><i class="pe-7s-close"></i></button>
             </div>
           </div>
-        `;
-        placeholder.parentNode.replaceChild(notificationBar, placeholder);
+        </div>
+      </div>
+    `;
+
+    // Insert at the beginning of body
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    // Set text content after a delay
+    setTimeout(() => {
+      const textElement = bar.querySelector('[data-notification-text]');
+      if (textElement) {
+        textElement.textContent = notificationContent.text;
       }
-    }, 1000); // Delay by 1 second after page load
-  });
+    }, 100);
+  }
+
+  // Wait for page to be fully loaded
+  if (document.readyState === 'complete') {
+    setTimeout(createNotificationBar, 1000);
+  } else {
+    window.addEventListener('load', () => setTimeout(createNotificationBar, 1000));
+  }
 </script>
 
 <style>
