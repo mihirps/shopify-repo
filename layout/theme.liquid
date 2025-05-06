@@ -36,7 +36,9 @@
   {% comment %} <link rel="preload" as="style" href="{{ 'vendor.css' | asset_url }}"> {% endcomment %}
   <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}"></noscript>
-
+{%- if section.settings.logo != blank -%}
+  <link rel="preload" as="image" href="{{ section.settings.logo | image_url: width: 150 }}" imagesrcset="{{ section.settings.logo | image_url: width: 150 }} 150w, {{ section.settings.logo | image_url: width: 300 }} 300w" fetchpriority="high">
+{%- endif -%}
   <link rel="preload" as="style" href="{{ 'slick.min.css' | asset_url }}">
   
   <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}">
