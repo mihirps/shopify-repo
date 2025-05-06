@@ -94,7 +94,7 @@
         "16259186029869ff02-2"
       ],
       "settings": {
-        "slider_large_height_enable": false,
+        "slider_large_height_enable": true,
         "section_color_enable": true,
         "arrow_color": "#777777",
         "arrow_hover_color": "#c29958",
