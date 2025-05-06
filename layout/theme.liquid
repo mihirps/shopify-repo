@@ -41,8 +41,8 @@
 {%- endif -%}
   <link rel="preload" as="style" href="{{ 'slick.min.css' | asset_url }}">
   
-  <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>  {%- if settings.dark_enable -%}
+  <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}">
+  {%- if settings.dark_enable -%}
   <link rel="preload" as="style" href="{{ 'dark.css' | asset_url }}">ap
   {%- endif -%}
   {% if theme_rtl %}
