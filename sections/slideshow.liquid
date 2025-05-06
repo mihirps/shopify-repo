@@ -112,11 +112,11 @@
     </div> {% endcomment %}
     <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
       <div class="slide-image-all-device{% if block.settings.slide_image_mobile %} sid-none{% endif %}">
-        <div
-          id="block-{{ block.id }}"
-          class="hero-slider-item bg-img bg-img-active"
-          style="background-image: url('{{ block.settings.slide_image | img_url: '2048x2048' }}');"
-          data-bgset=""
+        <div 
+          id="block-{{ block.id }}" 
+          class="hero-slider-item bg-img bg-img-active" 
+          style="background-image: url('{{ block.settings.slide_image | img_url: '2048x2048' }}');"  
+          data-bgset="" 
           loading="eager"
         >
           {{ slide-code }}
