@@ -93,6 +93,7 @@
         "c8cd3857-aa4f-4bf7-911f-c942c8a74e46",
         "16259186029869ff02-2"
       ],
+      "disabled": true,
       "settings": {
         "slider_large_height_enable": false,
         "section_color_enable": true,
@@ -807,6 +808,54 @@
         "email_placeholder": "Enter your e-mail",
         "button_title": "Subscribe!"
       }
+    },
+    "hero_banner_YGiAfM": {
+      "type": "Hero-banner",
+      "blocks": {
+        "banner_RcLaUP": {
+          "type": "banner",
+          "settings": {
+            "banner_image": "shopify://shop_images/Up_To_25_Off_2.png",
+            "banner_image_mobile": "shopify://shop_images/Up_To_25_Off_360_x_350_px_2.png",
+            "banner_title": "Banner Title",
+            "banner_content": "Banner content here",
+            "banner_button_title": "Shop Now",
+            "banner_button_url": "",
+            "image_link_enable": false,
+            "content_position": "content_left",
+            "content_animation": "animation_1",
+            "block_color_enable": false,
+            "title_color": "#222",
+            "sub_title_color": "#555",
+            "button_text_color": "#fff",
+            "button_bg_color": "#c29958",
+            "button_text_hover_color": "#fff",
+            "button_bg_hover_color": "#222222"
+          }
+        },
+        "section_padding_hKdKgy": {
+          "type": "section_padding",
+          "settings": {
+            "section_padding_top": 0,
+            "section_padding_bottom": 80,
+            "section_padding_top_md": 0,
+            "section_padding_bottom_md": 80,
+            "section_padding_top_xs": 0,
+            "section_padding_bottom_xs": 60
+          }
+        }
+      },
+      "block_order": [
+        "banner_RcLaUP",
+        "section_padding_hKdKgy"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "banner_large_height_enable": true,
+        "section_color_enable": false,
+        "overlay_color": "#fff",
+        "overlay_color_opatity": 0.7
+      }
     }
   },
   "order": [
@@ -821,6 +870,7 @@
     "1625978891d6a60717",
     "1625918594dffbc2ab",
     "162597684695b2fecb",
-    "newsletter_subscribe_fyadwd"
+    "newsletter_subscribe_fyadwd",
+    "hero_banner_YGiAfM"
   ]
 }
