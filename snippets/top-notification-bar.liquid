@@ -9,27 +9,19 @@
       if (placeholder) {
         const notificationBar = document.createElement('div');
         notificationBar.className = 'top-notification-bar';
+        notificationBar.setAttribute('aria-hidden', 'true');
+        
+        // Create the structure first
         notificationBar.innerHTML = `
           <div class="container">
             <div class="row">
               <div class="col-12">
                 <div class="notification-entry text-center">
                   <div class="notification-entry-inner">
-                    {%- if settings.notification_text != blank -%}
-                    {%- assign clean_text = settings.notification_text | strip_html | strip -%}
-                    <div class="notification-text" data-notification-text>
-                      {%- if clean_text contains '<p>' -%}
-                        {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
-                      {%- else -%}
-                        {{ clean_text }}
-                      {%- endif -%}
-                    </div>
-                    {%- endif -%}
-                    
+                    <div class="notification-text" data-notification-text></div>
                     {%- if settings.countdown_timer_enable -%}
                     <div class="product-countdown grid-countdown topbar-countdown" data-countdown="{{ settings.countdown_date }}" loading="lazy"></div> 
                     {%- endif -%}
-                    
                     {%- if settings.notification_button_name != blank -%}
                     <div class="notification-button-wrapper">
                       <a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a>
@@ -42,9 +34,27 @@
             </div>
           </div>
         `;
+        
+        // Replace placeholder with the structure
         placeholder.parentNode.replaceChild(notificationBar, placeholder);
+        
+        // Add the text content after a delay
+        setTimeout(function() {
+          const textElement = notificationBar.querySelector('[data-notification-text]');
+          if (textElement) {
+            {%- if settings.notification_text != blank -%}
+            {%- assign clean_text = settings.notification_text | strip_html | strip -%}
+            textElement.textContent = {%- if clean_text contains '<p>' -%}
+              {{ clean_text | replace: '<p>', '' | replace: '</p>', '' | json }}
+            {%- else -%}
+              {{ clean_text | json }}
+            {%- endif -%};
+            {%- endif -%}
+            notificationBar.removeAttribute('aria-hidden');
+          }
+        }, 500);
       }
-    }, 1000); // Delay by 1 second after page load
+    }, 1000);
   });
 </script>
 
