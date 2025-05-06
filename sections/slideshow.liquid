@@ -90,7 +90,7 @@
     </div>
     {%- endif -%}
     {%- endcapture -%}
-    {% comment %} <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
+     <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
       <div class="slide-image-all-device{% if block.settings.slide_image_mobile %} sid-none{% endif %}">
         <div id="block-{{ block.id }}" class="hero-slider-item {% if block.settings.slide_image %}bg-img lazyload{% else %}bg-img bg-img-active{% endif %}"
              {% if block.settings.slide_image %} loading=”lazy”
@@ -109,35 +109,8 @@
         </div>
       </div>
       {%- endif -%}
-    </div> {% endcomment %}
-    <div class="hero-single-slide hero-overlay" {{ block.shopify_attributes }}>
-      <div class="slide-image-all-device{% if block.settings.slide_image_mobile %} sid-none{% endif %}">
-        <div 
-          id="block-{{ block.id }}" 
-          class="hero-slider-item bg-img bg-img-active" 
-          style="background-image: url('{{ block.settings.slide_image | img_url: '2048x2048' }}');"  
-          data-bgset="" 
-          loading="eager"
-        >
-          {{ slide-code }}
-        </div>
-      </div>
-    
-      {% if block.settings.slide_image_mobile %}
-        <div class="slide-image-mobile-device">
-          <div
-            id="block-{{ block.id }}-mobile"
-            class="hero-slider-item bg-img bg-img-active"
-            style="background-image: url('{{ block.settings.slide_image_mobile | img_url: 'original' }}');"
-            data-bg=""
-            loading="lazy"
-          >
-            {{ slide-code }}
-          </div>
-        </div>
-      {% endif %}
     </div>
-    
+
     {%- endcase -%}
     {%- endfor -%}
   </div>
