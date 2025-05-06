@@ -16,7 +16,7 @@
     "language_handle": "shopify_language",
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
-    "heading_animated_enable": true,
+    "heading_animated_enable": false,
     "ajax_search_enable": false,
     "enable_preloader": true,
     "preloader_style": "Style_5",
