@@ -4,6 +4,8 @@
   <img data-sizes="auto"   loading="eager"
     fetchpriority="high" data-src="{{ section.settings.logo | img_url: logo_size }}" alt="{{ section.settings.logo.alt | default: shop.name }}"
        {%- if section.settings.ratina_logo_enable -%}
+        width="{{ section.settings.logo.width }}"
+  height="{{ section.settings.logo.height }}"
        srcset="{{ section.settings.logo | img_url: logo_size }} 1x, {{ section.settings.logo | img_url: logo_size, scale: 2 }} 2x"
        {%- endif -%}>
 </a>
