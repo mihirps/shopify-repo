@@ -41,9 +41,9 @@
 {%- endif -%}
   <link rel="preload" as="style" href="{{ 'slick.min.css' | asset_url }}">
   
-  <link rel="preload" as="style" href="{{ 'style.css' | asset_url }}">
-  {%- if settings.dark_enable -%}
-  <link rel="preload" as="style" href="{{ 'dark.css' | asset_url }}">
+  <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>  {%- if settings.dark_enable -%}
+  <link rel="preload" as="style" href="{{ 'dark.css' | asset_url }}">ap
   {%- endif -%}
   {% if theme_rtl %}
   <link rel="preload" as="style" href="{{ 'theme-rtl.css' | asset_url }}">
@@ -65,7 +65,7 @@
   <link rel="preload" href="{{ 'option_selection.js' | shopify_asset_url }}" as="script">
   <link rel="preload" href="{{ 'api.jquery.js' | shopify_asset_url }}" as="script">
   <link rel="preload" href="{{ 'cart.api.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script" defer>
   <link rel="preload" href="{{ 'fastclick.min.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'timber.js' | asset_url }}" as="script">
   {%- if template == 'index' and settings.newsletter_popup_enable -%}
