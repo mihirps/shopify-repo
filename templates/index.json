@@ -849,10 +849,88 @@
         "overlay_color": "rgba(0,0,0,0)",
         "overlay_color_opatity": 0
       }
+    },
+    "services_9ktNBQ": {
+      "type": "services",
+      "blocks": {
+        "service_VyHwaq": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "service_aQc7jp": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "service_wiN763": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "service_PyfKBc": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "section_padding_LX34RH": {
+          "type": "section_padding",
+          "settings": {
+            "section_padding_top": 0,
+            "section_padding_bottom": 80,
+            "section_padding_top_md": 0,
+            "section_padding_bottom_md": 80,
+            "section_padding_top_xs": 0,
+            "section_padding_bottom_xs": 60
+          }
+        }
+      },
+      "block_order": [
+        "service_VyHwaq",
+        "service_aQc7jp",
+        "service_wiN763",
+        "service_PyfKBc",
+        "section_padding_LX34RH"
+      ],
+      "name": "Service",
+      "settings": {
+        "services_enable": true,
+        "section_color_enable": false,
+        "icon_color": "#c29958",
+        "title_color": "#222",
+        "content_color": "#777",
+        "border_bottom_enable": false,
+        "border_color": "#efefef"
+      }
     }
   },
   "order": [
     "16259186029869ff02",
+    "services_9ktNBQ",
     "162755092131163f43",
     "1625918618b3579866",
     "16259758891a8812ef",
