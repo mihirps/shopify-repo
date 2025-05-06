@@ -34,7 +34,7 @@
     </style>
     {%- endif -%}
     
-    <section class="hero-banner-area{% if section.settings.banner_large_height_enable %} hero-style-five{% endif %}" id="section-{{ section.id }}" data-section="HeroBanner">
+    <section class="hero-banner-area{% if section.settings.banner_large_height_enable %} hero-style-five{% endif %}" id="section-{{ section.id }}" data-section="HeroBanner" style="{% if section.settings.hero_margin_left %}margin-left: {{ section.settings.hero_margin_left }}px;{% endif %}">
       {%- for block in section.blocks -%}
       {%- assign content_position = block.settings.content_position -%}
       {%- assign content_animation = block.settings.content_animation -%}
@@ -235,6 +235,15 @@
           "step": 0.1,
           "label": "Overlay Color Opacity",
           "default": 0.7
+        },
+        {
+          "type": "range",
+          "id": "hero_margin_left",
+          "label": "Hero Banner Margin Left (px)",
+          "min": 0,
+          "max": 200,
+          "step": 1,
+          "default": 0
         }
       ],
       "blocks":[
