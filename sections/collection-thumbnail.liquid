@@ -49,7 +49,7 @@
           {%- assign product_item = "product-" | append: a  -%}
           {%- assign a = a | plus: 1 -%}
           <div class="group-slide-item">
-            {% comment %} <div class="group-item">
+            <div class="group-item">
               <div class="group-item-thumb">
                 {{ product_item | placeholder_svg_tag: 'product-svg-image' }}
               </div>
@@ -59,16 +59,7 @@
                   <span class="price-regular">$99.99</span>
                 </div>
               </div>
-            </div> {% endcomment %}
-			<div class="group-item">
-				{% if product.featured_image %}
-				  <img src="{{ product.featured_image | img_url: '540x' }}" class="group-item-thumb" alt="{{ product.title }}" loading="lazy" width="270" height="270">
-				{% else %}
-				  {{ product_item | placeholder_svg_tag: 'group-item-thumb' }}
-				{% endif %}
-				<h5 class="group-product-name">Product Title</h5>
-				<span class="price-regular">$99.99</span>
-			  </div>
+            </div>
           </div>
           {%- if a == 7 -%}
           {%- assign a = 1 -%}

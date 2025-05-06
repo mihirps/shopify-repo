@@ -20,7 +20,7 @@
             {%- if block.settings.banner_image -%}
             {%- render 'responsive-image' with image: block.settings.banner_image, image_class: "lazyload-main-image" -%}
             {%- else -%}
-            <img class="lazyload" data-src="https://via.placeholder.com/545x250" width="545" height="250" alt="{{ block.settings.banner_image.alt }}">
+            <img class="lazyload" data-src="https://via.placeholder.com/545x250" alt="{{ block.settings.banner_image.alt }}">
             {%- endif -%}
           </a>
           {%- if block.settings.banner_title != '' or block.settings.banner_content != '' or block.settings.banner_button_title != '' -%}
