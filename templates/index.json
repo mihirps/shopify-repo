@@ -102,7 +102,7 @@
         "overlay_color_opatity": 0,
         "autoplay_true": false,
         "autoplay_speed": 7000,
-        "snow_enable": true
+        "snow_enable": false
       }
     },
     "162755092131163f43": {
