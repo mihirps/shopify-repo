@@ -23,7 +23,7 @@
             "slide_button_url": "shopify://products/10-this-is-the-large-title-for-testing-large-title-and-there-is-an-image-for-testing",
             "image_link_enable": true,
             "slide_content_position": "content_left",
-            "slide_animation": "animation_2",
+            "slide_animation": "animation_1",
             "block_color_enable": false,
             "title_color": "#222222",
             "sub_title_color": "#555555",
