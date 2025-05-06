@@ -191,54 +191,51 @@
         position: relative;
       }
       
-      /* Height management */
+      /* Height management - Fixed and improved version */
       .hero-banner-item {
         position: relative;
         display: flex;
         align-items: center;
-        
-        {% case section.settings.height_mode %}
-          {% when 'fixed' %}
-            height: {{ section.settings.banner_height_desktop }}px;
-            min-height: {{ section.settings.banner_height_desktop }}px;
-          {% when 'adaptable' %}
-            min-height: 250px;
-            height: auto;
-          {% when 'fullscreen' %}
-            height: 100vh;
-            min-height: 100vh;
-        {% endcase %}
-        
-        {% if section.settings.fullscreen_mobile %}
-          @media (max-width: 767px) {
-            height: 100vh;
-            min-height: 100vh;
-          }
-        {% endif %}
+        width: 100%;
       }
-      
-      @media (max-width: 991px) {
+
+      {% case section.settings.height_mode %}
+        {% when 'fixed' %}
         .hero-banner-item {
-          {% if section.settings.height_mode == 'fixed' %}
+          height: {{ section.settings.banner_height_desktop }}px;
+        }
+        
+        @media (max-width: 991px) {
+          .hero-banner-item {
             height: {{ section.settings.banner_height_tablet }}px;
-            min-height: {{ section.settings.banner_height_tablet }}px;
-          {% endif %}
+          }
         }
-      }
-      
-      @media (max-width: 767px) {
+        
+        @media (max-width: 767px) {
+          .hero-banner-item {
+            height: {% if section.settings.fullscreen_mobile %}100vh{% else %}{{ section.settings.banner_height_mobile }}px{% endif %};
+          }
+        }
+        
+        {% when 'adaptable' %}
         .hero-banner-item {
-          {% if section.settings.fullscreen_mobile %}
-            height: 100vh;
-            min-height: 100vh;
-          {% elsif section.settings.height_mode == 'fixed' %}
-            height: {{ section.settings.banner_height_mobile }}px;
-            min-height: {{ section.settings.banner_height_mobile }}px;
-          {% endif %}
+          min-height: 250px;
+          height: auto;
         }
-      }
+        
+        @media (max-width: 767px) {
+          .hero-banner-item {
+            min-height: {% if section.settings.fullscreen_mobile %}100vh{% else %}200px{% endif %};
+          }
+        }
+        
+        {% when 'fullscreen' %}
+        .hero-banner-item {
+          height: 100vh;
+        }
+      {% endcase %}
       
-      /* Rest of your styles */
+      /* Image sizing */
       .hero-bg-image, .hero-bg-image-mobile {
         position: absolute;
         top: 0;
