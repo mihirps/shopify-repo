@@ -849,7 +849,7 @@
       ],
       "name": "Hero Banner",
       "settings": {
-        "banner_large_height_enable": true,
+        "banner_large_height_enable": false,
         "section_color_enable": false,
         "overlay_color": "rgba(0,0,0,0)",
         "overlay_color_opatity": 0
