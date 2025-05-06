@@ -104,7 +104,7 @@
     "countdown_date": "2024-11-26",
     "countdown_timer_enable": true,
     "topbar_notification": "topbar_in_template",
-    "notification_text": "<p> Enjoy 25% OFF All Jewelry Collections – Limited Time Mother’s Day Offer 💖</p>",
+    "notification_text": "Enjoy 25% OFF All Jewelry Collections – Limited Time Mother’s Day Offer 💖",
     "notification_button_name": "Shop Now",
     "notification_button_url": "shopify://collections/hot-deals",
     "notification_bg_image": "",

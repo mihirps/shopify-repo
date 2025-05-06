@@ -6,8 +6,13 @@
         <div class="notification-entry text-center">
           <div class="notification-entry-inner">
             {%- if settings.notification_text != blank -%}
+            {%- assign clean_text = settings.notification_text | strip_html | strip -%}
             <div class="notification-text" data-notification-text style="opacity: 0; transition: opacity 0.3s ease-in-out;">
-              {{ settings.notification_text }}
+              {%- if clean_text contains '<p>' -%}
+                {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
+              {%- else -%}
+                {{ clean_text }}
+              {%- endif -%}
             </div>
             {%- endif -%}
             
@@ -29,7 +34,8 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  // Defer notification bar loading
+  window.addEventListener('load', function() {
     const notificationBar = document.querySelector('[data-notification-bar]');
     const notificationText = document.querySelector('[data-notification-text]');
     
@@ -54,6 +60,7 @@
     z-index: 100;
     will-change: transform;
     transform: translateZ(0);
+    background: var(--notification-bg, #ffffff);
   }
   .notification-entry {
     padding: 10px 0;
@@ -64,6 +71,7 @@
     line-height: 1.4;
     margin: 0;
     padding: 0;
+    color: var(--notification-text-color, #000000);
   }
   .notification-button-wrapper {
     display: inline-block;
@@ -72,6 +80,7 @@
   .notification-button {
     display: inline-block;
     text-decoration: none;
+    color: var(--notification-button-color, #000000);
   }
   @media (max-width: 767px) {
     .notification-text {
