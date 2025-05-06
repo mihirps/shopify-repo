@@ -1,57 +1,50 @@
 {%- if settings.notification_text != blank or settings.countdown_timer_enable or settings.notification_button_name != blank -%}
-<div class="top-notification-bar" style="display: none;" data-notification-bar>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="notification-entry text-center">
-          <div class="notification-entry-inner">
-            {%- if settings.notification_text != blank -%}
-            {%- assign clean_text = settings.notification_text | strip_html | strip -%}
-            <div class="notification-text" data-notification-text style="opacity: 0;">
-              {%- if clean_text contains '<p>' -%}
-                
-                {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
-              {%- else -%}
-                {{ clean_text }}
-              {%- endif -%}
-            </div>
-            {%- endif -%}
-            
-            {%- if settings.countdown_timer_enable -%}
-            <div class="product-countdown grid-countdown topbar-countdown" data-countdown="{{ settings.countdown_date }}" loading="lazy"></div> 
-            {%- endif -%}
-            
-            {%- if settings.notification_button_name != blank -%}
-            <div class="notification-button-wrapper">
-              <a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a>
-            </div>
-            {%- endif -%}
-          </div>
-          <button class="notification-close-btn" aria-label="Close notification"><i class="pe-7s-close"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="notification-bar-placeholder" style="display: none;"></div>
 
 <script>
-  // Defer notification bar loading
+  // Defer notification bar creation and rendering
   window.addEventListener('load', function() {
-    const notificationBar = document.querySelector('[data-notification-bar]');
-    const notificationText = document.querySelector('[data-notification-text]');
-    
-    if (notificationBar) {
-      // Use requestAnimationFrame to ensure smooth rendering
-      requestAnimationFrame(() => {
-        notificationBar.style.display = 'block';
-        // Fade in the notification text after a short delay
-        if (notificationText) {
-          setTimeout(() => {
-            notificationText.style.opacity = '1';
-          }, 100);
-        }
-      });
-    }
+    setTimeout(function() {
+      const placeholder = document.getElementById('notification-bar-placeholder');
+      if (placeholder) {
+        const notificationBar = document.createElement('div');
+        notificationBar.className = 'top-notification-bar';
+        notificationBar.innerHTML = `
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="notification-entry text-center">
+                  <div class="notification-entry-inner">
+                    {%- if settings.notification_text != blank -%}
+                    {%- assign clean_text = settings.notification_text | strip_html | strip -%}
+                    <div class="notification-text" data-notification-text>
+                      {%- if clean_text contains '<p>' -%}
+                        {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
+                      {%- else -%}
+                        {{ clean_text }}
+                      {%- endif -%}
+                    </div>
+                    {%- endif -%}
+                    
+                    {%- if settings.countdown_timer_enable -%}
+                    <div class="product-countdown grid-countdown topbar-countdown" data-countdown="{{ settings.countdown_date }}" loading="lazy"></div> 
+                    {%- endif -%}
+                    
+                    {%- if settings.notification_button_name != blank -%}
+                    <div class="notification-button-wrapper">
+                      <a class="notification-button" href="{{ settings.notification_button_url }}" loading="lazy">{{ settings.notification_button_name }}</a>
+                    </div>
+                    {%- endif -%}
+                  </div>
+                  <button class="notification-close-btn" aria-label="Close notification"><i class="pe-7s-close"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        placeholder.parentNode.replaceChild(notificationBar, placeholder);
+      }
+    }, 1000); // Delay by 1 second after page load
   });
 </script>
 
