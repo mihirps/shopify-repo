@@ -5,14 +5,10 @@
       data-sizes="auto"
       width="200"
       height="60"
-      loading="lazy"
       fetchpriority="high"
       alt="{{ shop.name }}"
-      data-src="{{ section.settings.logo | img_url: logo_size }}"
       alt="{{ section.settings.logo.alt | default: shop.name }}"
-      {%- if section.settings.ratina_logo_enable -%}
-        srcset="{{ section.settings.logo | img_url: logo_size }} 1x, {{ section.settings.logo | img_url: logo_size, scale: 2 }} 2x"
-      {%- endif -%}
+  
     >
   </a>
 {%- else -%}
