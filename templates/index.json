@@ -93,7 +93,6 @@
         "c8cd3857-aa4f-4bf7-911f-c942c8a74e46",
         "16259186029869ff02-2"
       ],
-      "disabled": true,
       "settings": {
         "slider_large_height_enable": false,
         "section_color_enable": true,
@@ -124,7 +123,6 @@
       "block_order": [
         "162755092131163f43-0"
       ],
-      "disabled": true,
       "settings": {
         "about_image": "shopify://shop_images/heating-metal-ring.jpg",
         "title": "About Us",
@@ -184,7 +182,6 @@
         "9259e02f-fa21-4305-b4b2-c4fb2bd95551",
         "1625918618b3579866-3"
       ],
-      "disabled": true,
       "settings": {
         "section_title": "Explore Our Favorite Looks",
         "section_sub_title": "Find the anklet that speaks to your heart and completes your look.",
@@ -274,7 +271,6 @@
         "collection_banner_xRbWmB",
         "16259758891a8812ef-4"
       ],
-      "disabled": true,
       "settings": {
         "full_width_enable": true,
         "title_bottom_enable": false,
@@ -497,7 +493,6 @@
         "16259780134af03526-2",
         "16259780134af03526-3"
       ],
-      "disabled": true,
       "settings": {
         "autoplay_true": false,
         "autoplay_speed": 7000
@@ -521,7 +516,6 @@
       "block_order": [
         "162597869786f671cc-0"
       ],
-      "disabled": true,
       "settings": {
         "section_title": "Latest Blog",
         "section_sub_title": "Check our latest blog",
@@ -800,7 +794,6 @@
       "block_order": [
         "section_padding_tcAaMp"
       ],
-      "disabled": true,
       "name": "Newsletter",
       "settings": {
         "section_title": "Subscribe Our Newsletter",
