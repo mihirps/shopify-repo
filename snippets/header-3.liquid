@@ -1,3 +1,7 @@
+{%- if section.settings.logo != blank -%}
+<link rel="preload" as="image" href="{{ section.settings.logo | image_url: width: section.settings.logo_width }}" fetchpriority="high">
+{%- endif -%}
+
 <header class="header-area {% if section.settings.menu_center_enable %} center-menu{% endif %} header-3" id="section-{{ section.id }}" data-section="HeaderSection">
   <div class="main-header d-none d-lg-block">
     {%- for block in section.blocks -%}
@@ -34,7 +38,7 @@
               <div class="header-configure-area">
                 <ul class="nav justify-content-end">
                   <li class="header-search-container mr-0">
-                    <button class="search-trigger d-block"><i class="pe-7s-search"></i></button>
+                    <button class="search-trigger d-block" aria-label="Search"><i class="pe-7s-search"></i></button>
                     {%- render 'main-search' -%}
                   </li>
                   {%- render 'header-action-button' -%}
@@ -42,7 +46,6 @@
               </div>
             </div>
           </div>
-
           <!-- mini cart area end -->
         </div>
       </div>

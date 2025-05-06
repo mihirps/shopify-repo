@@ -16,8 +16,7 @@
                    fetchpriority: 'high',
                    width: section.settings.logo.width,
                    height: section.settings.logo.height,
-                   widths: '50, 100, 150, 200, 250',
-                   sizes: '(max-width: 767px) 150px, 180px',
+                   sizes: '(max-width: 767px) 150px',
                    alt: shop.name
                 }}
               </a>
@@ -29,12 +28,11 @@
           </div>
           <div class="mobile-menu-toggler">
             <div class="mini-cart-wrap">
-              
-              <button class="search-trigger"><i class="pe-7s-search"></i></button>
+              <button class="search-trigger" aria-label="Search"><i class="pe-7s-search"></i></button>
               {%- render 'main-search' -%}
               
               {%- if section.settings.cart_icon_enable -%}
-              <a href="javascript: void(0)" class="minicart-btn">
+              <a href="javascript: void(0)" class="minicart-btn" aria-label="Cart">
                 {%- if section.settings.cart_icon_select == 'shopbag' -%}
                 <i class="pe-7s-shopbag"></i>
                 {%- elsif section.settings.cart_icon_select == 'cart' -%}
@@ -44,7 +42,7 @@
               </a>
               {%- endif -%}
             </div>
-            <button class="mobile-menu-btn" id="mobile-menu-trigger">
+            <button class="mobile-menu-btn" id="mobile-menu-trigger" aria-label="Menu">
               <span></span>
               <span></span>
               <span></span>
