@@ -852,7 +852,7 @@
         "banner_large_height_enable": true,
         "section_color_enable": false,
         "overlay_color": "#ffffff",
-        "overlay_color_opatity": 0.7
+        "overlay_color_opatity": 0
       }
     }
   },
