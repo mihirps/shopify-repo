@@ -34,6 +34,39 @@
     </style>
     {%- endif -%}
     
+    {%- if section.settings.overlay_enable -%}
+    <style>
+      #section-{{ section.id }} .hero-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      /* Keep existing mobile overlay settings */
+      @media (max-width: 767px) {
+        #section-{{ section.id }} .hero-overlay::before {
+          background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
+        }
+      }
+    </style>
+    {%- endif -%}
+    
+    {%- if section.settings.mobile_specific_overlay and section.settings.overlay_enable -%}
+    <style>
+      @media (max-width: 767px) {
+        #section-{{ section.id }} .hero-overlay::before {
+          background-color: {{ section.settings.mobile_overlay_color | color_modify: 'alpha', section.settings.mobile_overlay_opacity }};
+        }
+      }
+    </style>
+    {%- endif -%}
+    
     <section class="hero-banner-area{% if section.settings.banner_large_height_enable %} hero-style-five{% endif %}" id="section-{{ section.id }}" data-section="HeroBanner" style="{% if section.settings.hero_margin_left %}margin-left: {{ section.settings.hero_margin_left }}px;{% endif %}">
       {%- for block in section.blocks -%}
       {%- assign content_position = block.settings.content_position -%}
@@ -41,7 +74,7 @@
       {%- case block.type -%}
       {%- when 'banner' -%}  
       
-      <div class="hero-banner hero-overlay" {{ block.shopify_attributes }}>
+      <div class="hero-banner {% if section.settings.overlay_enable %}hero-overlay{% endif %}" {{ block.shopify_attributes }}>
         <div class="banner-image-all-device{% if block.settings.banner_image_mobile %} sid-none{% endif %}">
           <div id="block-{{ block.id }}" class="hero-banner-item bg-img">
             {% if block.settings.banner_image %}
@@ -202,6 +235,7 @@
       "settings": [
         {
           "type": "checkbox",
+          
           "id": "banner_large_height_enable",
           "label": "Banner Large Height Enable",
           "default": false
@@ -219,21 +253,55 @@
         },
         {
           "type": "header",
-          "content": "Mobile"
+          "content": "Image Overlay"
+        },
+        {
+          "type": "checkbox",
+          "id": "overlay_enable",
+          "label": "Enable Image Overlay",
+          "default": false,
+          "info": "Add a colored overlay on top of your banner image"
         },
         {
           "type": "color",
           "id": "overlay_color",
           "label": "Overlay Color",
-          "default": "#fff"
+          "default": "#000000"
         },
         {
           "type": "range",
-          "id": "overlay_color_opatity",
+          "id": "overlay_opacity",
           "min": 0.0,
-          "max": 1,
-          "step": 0.1,
-          "label": "Overlay Color Opacity",
+          "max": 1.0,
+          "step": 0.05,
+          "label": "Overlay Opacity",
+          "default": 0.3,
+          "info": "0 = completely transparent, 1 = completely opaque"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_specific_overlay",
+          "label": "Use Different Overlay for Mobile",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "mobile_overlay_color",
+          "label": "Mobile Overlay Color",
+          "default": "#fff",
+          "info": "Applied only when 'Use Different Overlay for Mobile' is enabled"
+        },
+        {
+          "type": "range",
+          "id": "mobile_overlay_opacity",
+          "min": 0.0,
+          "max": 1.0,
+          "step": 0.05,
+          "label": "Mobile Overlay Opacity",
           "default": 0.7
         },
         {
