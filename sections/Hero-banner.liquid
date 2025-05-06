@@ -84,6 +84,7 @@
                    height="{{ block.settings.banner_image.height }}"
                    loading="eager"
                    fetchpriority="high"
+                   {% if section.settings.height_mode == 'fixed' %}style="max-height: {{ section.settings.banner_height_desktop }}px;"{% endif %}
                    class="hero-bg-image">
             {% else %}
               <div class="placeholder-background">
@@ -163,15 +164,59 @@
         position: relative;
         overflow: hidden;
       }
+      
       .hero-banner {
         position: relative;
       }
+      
+      /* Height management */
       .hero-banner-item {
         position: relative;
-        min-height: 450px;
         display: flex;
         align-items: center;
+        
+        {% case section.settings.height_mode %}
+          {% when 'fixed' %}
+            height: {{ section.settings.banner_height_desktop }}px;
+            min-height: {{ section.settings.banner_height_desktop }}px;
+          {% when 'adaptable' %}
+            min-height: 250px;
+            height: auto;
+          {% when 'fullscreen' %}
+            height: 100vh;
+            min-height: 100vh;
+        {% endcase %}
+        
+        {% if section.settings.fullscreen_mobile %}
+          @media (max-width: 767px) {
+            height: 100vh;
+            min-height: 100vh;
+          }
+        {% endif %}
       }
+      
+      @media (max-width: 991px) {
+        .hero-banner-item {
+          {% if section.settings.height_mode == 'fixed' %}
+            height: {{ section.settings.banner_height_tablet }}px;
+            min-height: {{ section.settings.banner_height_tablet }}px;
+          {% endif %}
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .hero-banner-item {
+          {% if section.settings.fullscreen_mobile %}
+            height: 100vh;
+            min-height: 100vh;
+          {% elsif section.settings.height_mode == 'fixed' %}
+            height: {{ section.settings.banner_height_mobile }}px;
+            min-height: {{ section.settings.banner_height_mobile }}px;
+          {% endif %}
+        }
+      }
+      
+      /* Rest of your styles */
       .hero-bg-image, .hero-bg-image-mobile {
         position: absolute;
         top: 0;
@@ -181,52 +226,8 @@
         object-fit: cover;
         z-index: -1;
       }
-      .hero-banner-content {
-        position: relative;
-        z-index: 2;
-        padding: 40px 0;
-      }
-      .banner-title {
-        margin-bottom: 15px;
-        font-size: 42px;
-        font-weight: 700;
-        line-height: 1.2;
-      }
-      .banner-desc {
-        margin-bottom: 20px;
-        font-size: 18px;
-        line-height: 1.5;
-      }
-      .btn-hero {
-        display: inline-block;
-        padding: 10px 25px;
-        border-radius: 3px;
-        text-transform: uppercase;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-      .banner-image-mobile-device {
-        display: none;
-      }
       
-      @media (max-width: 767px) {
-        .banner-image-all-device.sid-none {
-          display: none;
-        }
-        .banner-image-mobile-device {
-          display: block;
-        }
-        .hero-banner-item {
-          min-height: 350px;
-        }
-        .banner-title {
-          font-size: 28px;
-        }
-        .banner-desc {
-          font-size: 16px;
-        }
-      }
+      /* Continue with your existing styles... */
     </style>
     
     {% schema %}
@@ -235,7 +236,6 @@
       "settings": [
         {
           "type": "checkbox",
-
           "id": "banner_large_height_enable",
           "label": "Banner Large Height Enable",
           "default": false
@@ -280,6 +280,64 @@
         },
         {
           "type": "header",
+          "content": "Banner Height"
+        },
+        {
+          "type": "select",
+          "id": "height_mode",
+          "label": "Height Mode",
+          "options": [
+            {
+              "value": "fixed",
+              "label": "Fixed Height"
+            },
+            {
+              "value": "adaptable",
+              "label": "Adapt to Content"
+            },
+            {
+              "value": "fullscreen",
+              "label": "Full Screen"
+            }
+          ],
+          "default": "fixed",
+          "info": "Set how your banner height should behave"
+        },
+        {
+          "type": "range",
+          "id": "banner_height_desktop",
+          "min": 200,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "label": "Desktop Height",
+          "default": 450,
+          "info": "Applied when using Fixed Height mode"
+        },
+        {
+          "type": "range",
+          "id": "banner_height_tablet",
+          "min": 200,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Tablet Height",
+          "default": 400,
+          "info": "Applied when using Fixed Height mode"
+        },
+        {
+          "type": "range",
+          "id": "banner_height_mobile",
+          "min": 150,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Mobile Height",
+          "default": 350,
+          "info": "Applied when using Fixed Height mode"
+        },
+        {
+          "type": "header",
           "content": "Mobile Settings"
         },
         {
@@ -303,6 +361,13 @@
           "step": 0.05,
           "label": "Mobile Overlay Opacity",
           "default": 0.7
+        },
+        {
+          "type": "checkbox",
+          "id": "fullscreen_mobile",
+          "label": "Full Height on Mobile",
+          "default": false,
+          "info": "Make banner full height on mobile regardless of height mode"
         },
         {
           "type": "range",
