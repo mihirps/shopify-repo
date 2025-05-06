@@ -114,7 +114,7 @@
             "service_icon": "plane",
             "service_title": "Free Shipping",
             "service_content": "<p>Free shipping all order</p>",
-            "service_column": 4,
+            "service_column": 3,
             "service_column_md": 6,
             "service_column_sm": 6
           }
@@ -125,7 +125,7 @@
             "service_icon": "plane",
             "service_title": "Free Shipping",
             "service_content": "<p>Free shipping all order</p>",
-            "service_column": 4,
+            "service_column": 3,
             "service_column_md": 6,
             "service_column_sm": 6
           }
@@ -136,7 +136,18 @@
             "service_icon": "plane",
             "service_title": "Free Shipping",
             "service_content": "<p>Free shipping all order</p>",
-            "service_column": 4,
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "service_rV3HEV": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
             "service_column_md": 6,
             "service_column_sm": 6
           }
@@ -157,6 +168,7 @@
         "service_DRY7gf",
         "service_aAwrUW",
         "service_4ip6Bt",
+        "service_rV3HEV",
         "section_padding_VQhm3d"
       ],
       "name": "Service 2",
