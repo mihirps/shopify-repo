@@ -43,28 +43,28 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
+        {% comment %} background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }}; {% endcomment %}
         z-index: 1;
         pointer-events: none;
       }
       
       /* Keep existing mobile overlay settings */
       @media (max-width: 767px) {
-        #section-{{ section.id }} .hero-overlay::before {
+        {% comment %} #section-{{ section.id }} .hero-overlay::before {
           background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
-        }
+        } {% endcomment %}
       }
     </style>
     {%- endif -%}
     
     {%- if section.settings.mobile_specific_overlay and section.settings.overlay_enable -%}
-    <style>
+    {% comment %} <style>
       @media (max-width: 767px) {
         #section-{{ section.id }} .hero-overlay::before {
           background-color: {{ section.settings.mobile_overlay_color | color_modify: 'alpha', section.settings.mobile_overlay_opacity }};
         }
       }
-    </style>
+    </style> {% endcomment %}
     {%- endif -%}
     
     <section class="hero-banner-area{% if section.settings.banner_large_height_enable %} hero-style-five{% endif %}" id="section-{{ section.id }}" data-section="HeroBanner" style="{% if section.settings.hero_margin_left %}margin-left: {{ section.settings.hero_margin_left }}px;{% endif %}">
