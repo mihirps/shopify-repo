@@ -183,7 +183,6 @@
         "9259e02f-fa21-4305-b4b2-c4fb2bd95551",
         "1625918618b3579866-3"
       ],
-      "disabled": true,
       "settings": {
         "section_title": "Explore Our Favorite Looks",
         "section_sub_title": "Find the anklet that speaks to your heart and completes your look.",
@@ -273,7 +272,6 @@
         "collection_banner_xRbWmB",
         "16259758891a8812ef-4"
       ],
-      "disabled": true,
       "settings": {
         "full_width_enable": true,
         "title_bottom_enable": false,
@@ -496,7 +494,6 @@
         "16259780134af03526-2",
         "16259780134af03526-3"
       ],
-      "disabled": true,
       "settings": {
         "autoplay_true": false,
         "autoplay_speed": 7000
@@ -520,7 +517,6 @@
       "block_order": [
         "162597869786f671cc-0"
       ],
-      "disabled": true,
       "settings": {
         "section_title": "Latest Blog",
         "section_sub_title": "Check our latest blog",
@@ -596,7 +592,6 @@
         "1625978891d6a60717-5",
         "1625978891d6a60717-6"
       ],
-      "disabled": true,
       "settings": {
         "brand_column": 5,
         "brand_column_md": 4,
@@ -671,7 +666,6 @@
         "1625918594dffbc2ab-3",
         "1625918594dffbc2ab-4"
       ],
-      "disabled": true,
       "settings": {
         "services_enable": true,
         "section_color_enable": false,
@@ -799,7 +793,6 @@
       "block_order": [
         "section_padding_tcAaMp"
       ],
-      "disabled": true,
       "name": "Newsletter",
       "settings": {
         "section_title": "Subscribe Our Newsletter",
