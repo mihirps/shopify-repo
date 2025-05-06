@@ -173,7 +173,7 @@
       ],
       "name": "Service 2",
       "settings": {
-        "section_title": "Section Title Here",
+        "section_title": "services",
         "section_sub_title": "Section Sub Title Here"
       }
     },
