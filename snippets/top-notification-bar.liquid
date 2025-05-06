@@ -7,8 +7,9 @@
           <div class="notification-entry-inner">
             {%- if settings.notification_text != blank -%}
             {%- assign clean_text = settings.notification_text | strip_html | strip -%}
-            <div class="notification-text" data-notification-text style="opacity: 0; transition: opacity 0.3s ease-in-out;">
+            <div class="notification-text" data-notification-text style="opacity: 0;">
               {%- if clean_text contains '<p>' -%}
+                
                 {{ clean_text | replace: '<p>', '' | replace: '</p>', '' }}
               {%- else -%}
                 {{ clean_text }}
