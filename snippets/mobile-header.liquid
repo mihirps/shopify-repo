@@ -5,8 +5,27 @@
     <div class="row align-items-center">
       <div class="col-12">
         <div class="mobile-main-header">
-          <div class="mobile-logo">
+          {% comment %} <div class="mobile-logo">
             {%- render 'header-logo' -%}
+          </div> {% endcomment %}
+          <div class="mobile-logo">
+            {% if section.settings.logo != blank %}
+              <a href="{{ routes.root_url }}">
+                {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag: 
+                   loading: 'eager',
+                   fetchpriority: 'high',
+                   width: section.settings.logo.width,
+                   height: section.settings.logo.height,
+                   widths: '50, 100, 150, 200, 250',
+                   sizes: '(max-width: 767px) 150px, 180px',
+                   alt: shop.name
+                }}
+              </a>
+            {% else %}
+              <a href="{{ routes.root_url }}">
+                <span class="header-logo-text">{{ shop.name }}</span>
+              </a>
+            {% endif %}
           </div>
           <div class="mobile-menu-toggler">
             <div class="mini-cart-wrap">
