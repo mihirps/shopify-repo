@@ -1,1 +1,128 @@
-{"type":"footer","name":"Footer","sections":{"footer":{"type":"footer","blocks":{"1563181946119":{"type":"about","settings":{"logo_width":150,"ratina_logo_enable":false,"about_content":"<p>We are a team of designers and developers that create high quality wordpress, shopify, Opencart<\/p>","margin_top_enable":false,"widget_column":3,"widget_column_md":6,"widget_column_sm":12}},"1563184020769":{"type":"contact","settings":{"widget_title":"Contact Us","icon_1":"home","address":"4710-4890 Breckinridge USA","icon_2":"mail","email":"demo@yourdomain.com","icon_3":"call","phone":"(012) 800 456 789-987","margin_top_enable":false,"widget_column":3,"widget_column_md":6,"widget_column_sm":12}},"1563186251632":{"type":"menu","settings":{"widget_title":"Our Policies","menu_handle":"footer","grid_view_enable":false,"margin_top_enable":false,"widget_column":3,"widget_column_md":6,"widget_column_sm":12}},"1563190553294":{"type":"social_midea","settings":{"widget_title":"Follow Us","social_content":"","app_image_1_url":"#","app_image_2_url":"","margin_top_enable":false,"widget_column":3,"widget_column_md":6,"widget_column_sm":12}},"1563252960776":{"type":"newsletter","disabled":true,"settings":{"widget_title":"Signup for newsletter","newsletter_content":"","margin_top_enable":true,"widget_column":6,"widget_column_md":6,"widget_column_sm":12}},"1563271189215":{"type":"payment_image","settings":{"margin_top_enable":true,"widget_column":6,"widget_column_md":6,"widget_column_sm":12}}},"block_order":["1563181946119","1563184020769","1563186251632","1563190553294","1563252960776","1563271189215"],"settings":{"copy_ritht_text_enable":true,"copy_ritht_text":"<p>Copyright   2021 <a href=\"https:\/\/hasthemes.com\/\" title=\"https:\/\/hasthemes.com\/\">HasThemes<\/a> | Built with <strong>Corano<\/strong> by <a href=\"https:\/\/hasthemes.com\/\" title=\"https:\/\/hasthemes.com\/\">HasThemes<\/a>.<\/p>","section_color_enable":false,"footer_top_bg_color":"#f7f7f7","footer_top_color":"#555555","footer_top_widget_color":"#222222","footer_top_menu_color":"#555555","footer_top_menu_hover_color":"#c29958","footer_newsletter_border_color":"#bcbcbc","footer_newsletter_button_color":"#424242","footer_newsletter_button_hover_color":"#424242","social_link_color":"#777777","social_link_bg_color":"#ffffff","social_link_border_color":"#dedede","social_link_hover_color":"#777777","social_link_hover_bg_color":"#424242","social_link_hover_border_color":"#424242","copyright_bg_color":"#ffffff","copyright_text_color":"#555555","snow_enable":false}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1563181946119": {
+          "type": "about",
+          "disabled": true,
+          "settings": {
+            "logo_width": 150,
+            "ratina_logo_enable": false,
+            "about_content": "<p>We are a team of designers and developers that create high quality wordpress, shopify, Opencart</p>",
+            "margin_top_enable": false,
+            "widget_column": 3,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        },
+        "1563184020769": {
+          "type": "contact",
+          "settings": {
+            "widget_title": "Contact Us",
+            "icon_1": "home",
+            "address": "4710-4890 Breckinridge USA",
+            "icon_2": "mail",
+            "email": "demo@yourdomain.com",
+            "icon_3": "call",
+            "phone": "(012) 800 456 789-987",
+            "margin_top_enable": false,
+            "widget_column": 3,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        },
+        "1563186251632": {
+          "type": "menu",
+          "settings": {
+            "widget_title": "Our Policies",
+            "menu_handle": "footer",
+            "grid_view_enable": false,
+            "margin_top_enable": false,
+            "widget_column": 3,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        },
+        "1563190553294": {
+          "type": "social_midea",
+          "settings": {
+            "widget_title": "Follow Us",
+            "social_content": "",
+            "app_image_1_url": "#",
+            "app_image_2_url": "",
+            "margin_top_enable": false,
+            "widget_column": 3,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        },
+        "1563252960776": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "widget_title": "Signup for newsletter",
+            "newsletter_content": "",
+            "margin_top_enable": true,
+            "widget_column": 6,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        },
+        "1563271189215": {
+          "type": "payment_image",
+          "settings": {
+            "margin_top_enable": true,
+            "widget_column": 6,
+            "widget_column_md": 6,
+            "widget_column_sm": 12
+          }
+        }
+      },
+      "block_order": [
+        "1563181946119",
+        "1563184020769",
+        "1563186251632",
+        "1563190553294",
+        "1563252960776",
+        "1563271189215"
+      ],
+      "settings": {
+        "copy_ritht_text_enable": true,
+        "copy_ritht_text": "<p>Copyright   2021 <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a> | Built with <strong>Corano</strong> by <a href=\"https://hasthemes.com/\" title=\"https://hasthemes.com/\">HasThemes</a>.</p>",
+        "section_color_enable": false,
+        "footer_top_bg_color": "#f7f7f7",
+        "footer_top_color": "#555555",
+        "footer_top_widget_color": "#222222",
+        "footer_top_menu_color": "#555555",
+        "footer_top_menu_hover_color": "#c29958",
+        "footer_newsletter_border_color": "#bcbcbc",
+        "footer_newsletter_button_color": "#424242",
+        "footer_newsletter_button_hover_color": "#424242",
+        "social_link_color": "#777777",
+        "social_link_bg_color": "#ffffff",
+        "social_link_border_color": "#dedede",
+        "social_link_hover_color": "#777777",
+        "social_link_hover_bg_color": "#424242",
+        "social_link_hover_border_color": "#424242",
+        "copyright_bg_color": "#ffffff",
+        "copyright_text_color": "#555555",
+        "snow_enable": false
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
