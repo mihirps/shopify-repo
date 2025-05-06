@@ -91,7 +91,6 @@
         "c8cd3857-aa4f-4bf7-911f-c942c8a74e46",
         "16259186029869ff02-2"
       ],
-      "disabled": true,
       "settings": {
         "slider_large_height_enable": false,
         "section_color_enable": true,
@@ -847,6 +846,7 @@
         "banner_RcLaUP",
         "section_padding_hKdKgy"
       ],
+      "disabled": true,
       "name": "Hero Banner",
       "settings": {
         "banner_large_height_enable": false,
