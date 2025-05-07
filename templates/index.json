@@ -906,6 +906,8 @@
       "name": "Lightweight Hero",
       "settings": {
         "image": "shopify://shop_images/hero-web.webp",
+        "image_tablet": "shopify://shop_images/hero-web.webp",
+        "image_mobile": "shopify://shop_images/hero-mobile.webp",
         "title": "Banner Title",
         "text": "Add some descriptive text to your banner",
         "button_label": "shop now",
