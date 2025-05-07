@@ -1,5 +1,4 @@
 <div class="lightweight-hero" id="section-{{ section.id }}">
-  <div class="container">
   {%- if section.settings.image != blank -%}
     <div class="hero-container{% if section.settings.overlay_enable %} hero-overlay{% endif %}">
       <picture>
@@ -67,15 +66,16 @@
   {%- else -%}
     <div class="hero-placeholder">
       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      <div class="hero-content-wrapper">
-        <div class="hero-content">
-          <h2 class="hero-title">Add a banner image</h2>
-          <div class="hero-text">This section displays a banner image with optional text overlay</div>
+      <div class="container">
+        <div class="hero-content-wrapper">
+          <div class="hero-content">
+            <h2 class="hero-title">Add a banner image</h2>
+            <div class="hero-text">This section displays a banner image with optional text overlay</div>
+          </div>
         </div>
       </div>
     </div>
   {%- endif -%}
-</div>
 </div>
 
 <style>
@@ -181,7 +181,7 @@
       padding-top: {{ section.settings.padding_top_tablet }}px;
       padding-bottom: {{ section.settings.padding_bottom_tablet }}px;
     }
-    
+
     .hero-container {
       height: {{ section.settings.height_tablet }}px;
     }
