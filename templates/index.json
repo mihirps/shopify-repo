@@ -874,33 +874,7 @@
         "button_title": "Subscribe!"
       }
     },
-    "hero_banner_YGiAfM": {
-      "type": "Hero-banner",
-      "disabled": true,
-      "name": "Hero Banner",
-      "settings": {
-        "title": "Banner Title",
-        "text": "Add some descriptive text to your banner",
-        "button_label": "Shop Now",
-        "button_url": "",
-        "height_desktop": 450,
-        "height_tablet": 350,
-        "height_mobile": 300,
-        "content_align": "left",
-        "content_width": 500,
-        "content_offset": 40,
-        "margin_bottom": 0,
-        "title_size": 42,
-        "text_size": 18,
-        "title_color": "#ffffff",
-        "text_color": "#ffffff",
-        "button_bg": "#c29958",
-        "button_color": "#ffffff",
-        "overlay_enable": true,
-        "overlay_color": "rgba(0,0,0,0)",
-        "overlay_opacity": 0.3
-      }
-    },
+
     "hero_banner_jpF4bR": {
       "type": "Hero-banner",
       "name": "Lightweight Hero",
