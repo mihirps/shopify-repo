@@ -874,11 +874,16 @@
         "button_title": "Subscribe!"
       }
     },
-
     "hero_banner_jpF4bR": {
       "type": "Hero-banner",
       "name": "Lightweight Hero",
       "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_tablet": 0,
+        "padding_bottom_tablet": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
         "image": "shopify://shop_images/hero-web.webp",
         "image_tablet": "shopify://shop_images/hero-web.webp",
         "image_mobile": "shopify://shop_images/hero-mobile.webp",
@@ -919,7 +924,6 @@
     "1625978891d6a60717",
     "162597684695b2fecb",
     "newsletter_subscribe_fyadwd",
-    "hero_banner_YGiAfM",
     "hero_banner_jpF4bR"
   ]
 }
