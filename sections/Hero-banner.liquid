@@ -1,774 +1,402 @@
-<!-- filepath: e:\shopoify repo\shopify-repo\sections\hero-banner.liquid -->
-{%- for block in section.blocks -%}
-    {%- case block.type -%}
-    {%- when 'banner' -%}
-    {%- if block.settings.block_color_enable -%}
-    <style>
-      {% for block in section.blocks %}
-        {% case block.type %}
-        {% when 'banner' %}
-        #block-{{ block.id }} .hero-banner-content {
-          position: relative;
-          z-index: 2;
-          padding-top: {{ block.settings.content_padding_top | default: 40 }}px;
-          padding-bottom: {{ block.settings.content_padding_bottom | default: 40 }}px;
-          padding-left: {{ block.settings.content_padding_left | default: 0 }}px;
-          padding-right: {{ block.settings.content_padding_right | default: 0 }}px;
-        }
-        
-        @media (max-width: 767px) {
-          #block-{{ block.id }} .hero-banner-content {
-            padding-top: {{ block.settings.content_padding_top | divided_by: 1.5 | round | default: 25 }}px;
-            padding-bottom: {{ block.settings.content_padding_bottom | divided_by: 1.5 | round | default: 25 }}px;
-            padding-left: {{ block.settings.content_padding_left | default: 0 }}px;
-            padding-right: {{ block.settings.content_padding_right | default: 0 }}px;
-          }
-        }
-        {% endcase %}
-      {% endfor %}
-      #block-{{ block.id }} .hero-banner-content .banner-title{
-        color: {{ block.settings.title_color }};
-      }
-      #block-{{ block.id }} .hero-banner-content .banner-desc{
-        color: {{ block.settings.sub_title_color }};
-      }
-      #block-{{ block.id }} .hero-banner-content a.btn-hero {
-        color: {{ block.settings.button_text_color }};
-        background-color: {{ block.settings.button_bg_color }};
-      }
-      #block-{{ block.id }} .hero-banner-content a.btn-hero:hover {
-        color: {{ block.settings.button_text_hover_color }};
-        background-color: {{ block.settings.button_bg_hover_color }};
-      }
-    </style>
-    {%- endif -%}
-    {%- endcase -%}
-    {%- endfor -%}
-    {%- render 'section-style' -%}
-    
-    {%- if section.settings.section_color_enable -%}
-    <style>
-      @media (max-width: 767px) {
-        .hero-overlay:before {
-          {% comment %} background-color: {{ section.settings.overlay_color | hex_to_rgba: section.settings.overlay_color_opatity }}; {% endcomment %}
-        }
-      }
-    </style>
-    {%- endif -%}
-    
-    {%- if section.settings.overlay_enable -%}
-    <style>
-      #section-{{ section.id }} .hero-overlay::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        {% comment %} background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }}; {% endcomment %}
-        z-index: 1;
-        pointer-events: none;
-      }
+<div class="lightweight-hero" id="section-{{ section.id }}">
+  {%- if section.settings.image != blank -%}
+    <div class="hero-container{% if section.settings.overlay_enable %} hero-overlay{% endif %}">
+      <img src="{{ section.settings.image | img_url: 'master' }}"
+           srcset="{{ section.settings.image | img_url: '800x' }} 800w,
+                   {{ section.settings.image | img_url: '1200x' }} 1200w,
+                   {{ section.settings.image | img_url: '1600x' }} 1600w,
+                   {{ section.settings.image | img_url: '2000x' }} 2000w"
+           sizes="100vw"
+           alt="{{ section.settings.title | escape }}"
+           width="{{ section.settings.image.width }}"
+           height="{{ section.settings.image.height }}"
+           loading="eager"
+           fetchpriority="high"
+           class="hero-image">
       
-      /* Keep existing mobile overlay settings */
-      @media (max-width: 767px) {
-        {% comment %} #section-{{ section.id }} .hero-overlay::before {
-          background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
-        } {% endcomment %}
-      }
-    </style>
-    {%- endif -%}
-    
-    {%- if section.settings.mobile_specific_overlay and section.settings.overlay_enable -%}
-    {% comment %} <style>
-      @media (max-width: 767px) {
-        #section-{{ section.id }} .hero-overlay::before {
-          background-color: {{ section.settings.mobile_overlay_color | color_modify: 'alpha', section.settings.mobile_overlay_opacity }};
-        }
-      }
-    </style> {% endcomment %}
-    {%- endif -%}
-    
-    <section class="hero-banner-area{% if section.settings.banner_large_height_enable %} hero-style-five{% endif %}" id="section-{{ section.id }}" data-section="HeroBanner" style="{% if section.settings.hero_margin_left %}margin-left: {{ section.settings.hero_margin_left }}px;{% endif %}">
-      {%- for block in section.blocks -%}
-      {%- assign content_position = block.settings.content_position -%}
-      {%- assign content_animation = block.settings.content_animation -%}
-      {%- case block.type -%}
-      {%- when 'banner' -%}  
-      
-      <div class="hero-banner {% if section.settings.overlay_enable %}hero-overlay{% endif %}" {{ block.shopify_attributes }}>
-        <div class="banner-image-all-device{% if block.settings.banner_image_mobile %} sid-none{% endif %}">
-          <div id="block-{{ block.id }}" class="hero-banner-item bg-img">
-            {% if block.settings.banner_image %}
-              <img src="{{ block.settings.banner_image | img_url: '1800x' }}" 
-                   alt="{{ block.settings.banner_title | escape }}"
-                   width="{{ block.settings.banner_image.width }}"
-                   height="{{ block.settings.banner_image.height }}"
-                   loading="eager"
-                   fetchpriority="high"
-                   {% if section.settings.height_mode == 'fixed' %}style="max-height: {{ section.settings.banner_height_desktop }}px;"{% endif %}
-                   class="hero-bg-image">
-            {% else %}
-              <div class="placeholder-background">
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
-            {% endif %}
-            
-            {%- if block.settings.image_link_enable and block.settings.banner_button_url != blank -%}
-              <a class="banner-image-link" href="{{ block.settings.banner_button_url }}"></a>
+      {%- if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank -%}
+        <div class="hero-content-wrapper">
+          <div class="hero-content{% if section.settings.content_align == 'center' %} text-center{% elsif section.settings.content_align == 'right' %} text-right{% endif %}">
+            {%- if section.settings.title != blank -%}
+              <h2 class="hero-title">{{ section.settings.title }}</h2>
             {%- endif -%}
-            
-            {%- if block.settings.banner_title != '' or block.settings.banner_content != '' or block.settings.banner_button_title != '' -%}
-            <div class="container">
-              <div class="row">
-                <div class="{% if content_position == 'content_left' %}col-md-7 col-lg-6{% elsif content_position == 'content_right' %}col-md-7 col-lg-6 ml-auto{% else %}offset-md-2 col-md-8 offset-lg-3 col-lg-6{% endif %}">
-                  <div class="{% if content_animation == 'animation_1' %}slide-1{% elsif content_animation == 'animation_2' %}slide-2{% elsif content_animation == 'animation_3' %}slide-3{% endif %}
-                              {% if content_position == 'content_left' %}hero-banner-content{% elsif content_position == 'content_right' %}hero-banner-content text-md-right{% else %}hero-banner-content text-center{% endif %}">
-                    {%- if block.settings.banner_title != '' -%}
-                    <h2 class="banner-title">{{ block.settings.banner_title }}</h2>
-                    {%- endif -%}
-                    {%- if block.settings.banner_content != '' -%}
-                    <h4 class="banner-desc">{{ block.settings.banner_content }}</h4>
-                    {%- endif -%}
-                    {%- if block.settings.banner_button_title != '' -%}
-                    <a href="{{ block.settings.banner_button_url }}" class="btn btn-hero">{{ block.settings.banner_button_title }}</a>
-                    {%- endif -%}
-                  </div>
-                </div>
-              </div>
-            </div>
+            {%- if section.settings.text != blank -%}
+              <div class="hero-text">{{ section.settings.text }}</div>
+            {%- endif -%}
+            {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
+              <a href="{{ section.settings.button_url }}" class="hero-button">
+                {{ section.settings.button_label }}
+              </a>
             {%- endif -%}
           </div>
         </div>
-        
-        {%- if block.settings.banner_image_mobile -%}
-        <div class="banner-image-mobile-device">
-          <div id="block-{{ block.id }}" class="hero-banner-item bg-img">
-            <img src="{{ block.settings.banner_image_mobile | img_url: '800x' }}" 
-                 alt="{{ block.settings.banner_title | escape }}"
-                 width="{{ block.settings.banner_image_mobile.width }}"
-                 height="{{ block.settings.banner_image_mobile.height }}"
-                 loading="eager"
-                 fetchpriority="high"
-                 class="hero-bg-image-mobile">
-            
-            {%- if block.settings.banner_title != '' or block.settings.banner_content != '' or block.settings.banner_button_title != '' -%}
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <div class="hero-banner-content text-center">
-                    {%- if block.settings.banner_title != '' -%}
-                    <h2 class="banner-title">{{ block.settings.banner_title }}</h2>
-                    {%- endif -%}
-                    {%- if block.settings.banner_content != '' -%}
-                    <h4 class="banner-desc">{{ block.settings.banner_content }}</h4>
-                    {%- endif -%}
-                    {%- if block.settings.banner_button_title != '' -%}
-                    <a href="{{ block.settings.banner_button_url }}" class="btn btn-hero">{{ block.settings.banner_button_title }}</a>
-                    {%- endif -%}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {%- endif -%}
-          </div>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <div class="hero-placeholder">
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <h2 class="hero-title">Add a banner image</h2>
+          <div class="hero-text">This section displays a banner image with optional text overlay</div>
         </div>
-        {%- endif -%}
       </div>
-      
-      {%- endcase -%}
-      {%- endfor -%}
-    </section>
-    
-    <style>
-      /* Essential styles for proper display */
-      .hero-banner-area {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .hero-banner {
-        position: relative;
-      }
-      
-      /* Height management - Fixed and improved version */
-      .hero-banner-item {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-      }
+    </div>
+  {%- endif -%}
+</div>
 
-      {% case section.settings.height_mode %}
-        {% when 'fixed' %}
-        .hero-banner-item {
-          height: {{ section.settings.banner_height_desktop }}px;
-        }
-        
-        @media (max-width: 991px) {
-          .hero-banner-item {
-            height: {{ section.settings.banner_height_tablet }}px;
-          }
-        }
-        
-        @media (max-width: 767px) {
-          .hero-banner-item {
-            height: {% if section.settings.fullscreen_mobile %}100vh{% else %}{{ section.settings.banner_height_mobile }}px{% endif %};
-          }
-        }
-        
-        {% when 'adaptable' %}
-        .hero-banner-item {
-          min-height: 250px;
-          height: auto;
-        }
-        
-        @media (max-width: 767px) {
-          .hero-banner-item {
-            min-height: {% if section.settings.fullscreen_mobile %}100vh{% else %}200px{% endif %};
-          }
-        }
-        
-        {% when 'fullscreen' %}
-        .hero-banner-item {
-          height: 100vh;
-        }
-      {% endcase %}
-      
-      /* Image sizing */
-      .hero-bg-image, .hero-bg-image-mobile {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
-      
-      /* Continue with your existing styles... */
-    </style>
-    
-    {% schema %}
+<style>
+.lightweight-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: {{ section.settings.margin_bottom }}px;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: {{ section.settings.height_desktop }}px;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  max-width: {{ section.settings.content_width }}px;
+  margin-left: {{ section.settings.content_offset }}px;
+}
+
+.hero-title {
+  margin: 0 0 15px;
+  font-size: {{ section.settings.title_size }}px;
+  color: {{ section.settings.title_color }};
+  line-height: 1.2;
+}
+
+.hero-text {
+  margin: 0 0 20px;
+  font-size: {{ section.settings.text_size }}px;
+  color: {{ section.settings.text_color }};
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: {{ section.settings.button_bg }};
+  color: {{ section.settings.button_color }};
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: {{ section.settings.overlay_color }};
+  opacity: {{ section.settings.overlay_opacity }};
+  z-index: 1;
+}
+
+.text-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-right {
+  text-align: right;
+  margin-left: auto;
+  margin-right: {{ section.settings.content_offset }}px;
+}
+
+.hero-placeholder {
+  height: {{ section.settings.height_desktop }}px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+}
+
+@media screen and (max-width: 989px) {
+  .hero-container {
+    height: {{ section.settings.height_tablet }}px;
+  }
+  
+  .hero-placeholder {
+    height: {{ section.settings.height_tablet }}px;
+  }
+  
+  .hero-title {
+    font-size: {{ section.settings.title_size | minus: 6 }}px;
+  }
+  
+  .hero-text {
+    font-size: {{ section.settings.text_size | minus: 2 }}px;
+  }
+  
+  .hero-content {
+    margin-left: {{ section.settings.content_offset | divided_by: 2 }}px;
+  }
+  
+  .text-right {
+    margin-right: {{ section.settings.content_offset | divided_by: 2 }}px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .hero-container {
+    height: {{ section.settings.height_mobile }}px;
+  }
+  
+  .hero-placeholder {
+    height: {{ section.settings.height_mobile }}px;
+  }
+  
+  .hero-title {
+    font-size: {{ section.settings.title_size | minus: 12 }}px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text {
+    font-size: {{ section.settings.text_size | minus: 4 }}px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content {
+    padding: 15px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  
+  .text-right {
+    margin-right: 0;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Lightweight Hero",
+  "settings": [
     {
-      "name": "Hero Banner",
-      "settings": [
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Banner Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Add some descriptive text to your banner"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "label": "Height (Desktop)",
+      "default": 450,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "height_tablet",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "label": "Height (Tablet)",
+      "default": 350,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 150,
+      "max": 500,
+      "step": 10,
+      "label": "Height (Mobile)",
+      "default": 300,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "content_align",
+      "label": "Content Alignment",
+      "options": [
         {
-          "type": "checkbox",
-          "id": "banner_large_height_enable",
-          "label": "Banner Large Height Enable",
-          "default": false
+          "value": "left",
+          "label": "Left"
         },
         {
-          "type": "header",
-          "content": "Color"
+          "value": "center",
+          "label": "Center"
         },
         {
-          "type": "checkbox",
-          "id": "section_color_enable",
-          "label": "Color Enable",
-          "default": false,
-          "info": "Enable the field for color customization"
-        },
-        {
-          "type": "header",
-          "content": "Image Overlay"
-        },
-        {
-          "type": "checkbox",
-          "id": "overlay_enable",
-          "label": "Enable Image Overlay",
-          "default": false,
-          "info": "Add a colored overlay on top of your banner image"
-        },
-        {
-          "type": "color",
-          "id": "overlay_color",
-          "label": "Overlay Color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "overlay_opacity",
-          "min": 0.0,
-          "max": 1.0,
-          "step": 0.05,
-          "label": "Overlay Opacity",
-          "default": 0.3,
-          "info": "0 = completely transparent, 1 = completely opaque"
-        },
-        {
-          "type": "header",
-          "content": "Banner Height"
-        },
-        {
-          "type": "select",
-          "id": "height_mode",
-          "label": "Height Mode",
-          "options": [
-            {
-              "value": "fixed",
-              "label": "Fixed Height"
-            },
-            {
-              "value": "adaptable",
-              "label": "Adapt to Content"
-            },
-            {
-              "value": "fullscreen",
-              "label": "Full Screen"
-            }
-          ],
-          "default": "fixed",
-          "info": "Set how your banner height should behave"
-        },
-        {
-          "type": "range",
-          "id": "banner_height_desktop",
-          "min": 200,
-          "max": 800,
-          "step": 10,
-          "unit": "px",
-          "label": "Desktop Height",
-          "default": 450,
-          "info": "Applied when using Fixed Height mode"
-        },
-        {
-          "type": "range",
-          "id": "banner_height_tablet",
-          "min": 200,
-          "max": 600,
-          "step": 10,
-          "unit": "px",
-          "label": "Tablet Height",
-          "default": 400,
-          "info": "Applied when using Fixed Height mode"
-        },
-        {
-          "type": "range",
-          "id": "banner_height_mobile",
-          "min": 150,
-          "max": 500,
-          "step": 10,
-          "unit": "px",
-          "label": "Mobile Height",
-          "default": 350,
-          "info": "Applied when using Fixed Height mode"
-        },
-        {
-          "type": "header",
-          "content": "Mobile Settings"
-        },
-        {
-          "type": "checkbox",
-          "id": "mobile_specific_overlay",
-          "label": "Use Different Overlay for Mobile",
-          "default": false
-        },
-        {
-          "type": "color",
-          "id": "mobile_overlay_color",
-          "label": "Mobile Overlay Color",
-          "default": "#fff",
-          "info": "Applied only when 'Use Different Overlay for Mobile' is enabled"
-        },
-        {
-          "type": "range",
-          "id": "mobile_overlay_opacity",
-          "min": 0.0,
-          "max": 1.0,
-          "step": 0.05,
-          "label": "Mobile Overlay Opacity",
-          "default": 0.7
-        },
-        {
-          "type": "checkbox",
-          "id": "fullscreen_mobile",
-          "label": "Full Height on Mobile",
-          "default": false,
-          "info": "Make banner full height on mobile regardless of height mode"
-        },
-        {
-          "type": "range",
-          "id": "hero_margin_left",
-          "label": "Hero Banner Margin Left (px)",
-          "min": 0,
-          "max": 200,
-          "step": 1,
-          "default": 0
+          "value": "right",
+          "label": "Right"
         }
       ],
-      "blocks":[
-        {
-          "type": "banner",
-          "name": "Banner",
-          "limit": 1,
-          "settings": [
-            {
-              "type": "image_picker",
-              "id": "banner_image",
-              "label": "Image",
-              "info": "Recommended Size: 1920 x 670px"
-            },
-            {
-              "type": "image_picker",
-              "id": "banner_image_mobile",
-              "label": "Image (Mobile)",
-              "info": "If you want to show a separate banner image on mobile, add an image. Recommended Size: 767 x 500px"
-            },
-            {
-              "type": "header",
-              "content": "Content"
-            },
-            {
-              "type": "textarea",
-              "id": "banner_title",
-              "label": "Title",
-              "default": "Banner Title",
-              "info": "Use '<span>' tag for line break"
-            },
-            {
-              "type": "textarea",
-              "id": "banner_content",
-              "label": "Content",
-              "default": "Banner content here"
-            },
-            {
-              "type": "text",
-              "id": "banner_button_title",
-              "label": "Button Title",
-              "default": "Shop Now"
-            },
-            {
-              "type": "url",
-              "id": "banner_button_url",
-              "label": "URL"
-            },
-            {
-              "type": "checkbox",
-              "id": "image_link_enable",
-              "label": "Image Link Enable",
-              "default": false,
-              "info": "Enable this field if you want to link banner image"
-            },
-            {
-              "type": "radio",
-              "id": "content_position",
-              "label": "Content Position",
-              "options":[
-                {
-                  "label": "Left",
-                  "value": "content_left"
-                },
-                {
-                  "label": "Right",
-                  "value": "content_right"
-                },
-                {
-                  "label": "Center",
-                  "value": "content_center"
-                }
-              ],
-              "default": "content_left"
-            },
-            {
-              "type": "select",
-              "id": "content_animation",
-              "label": "Animation",
-              "options":[
-                {
-                  "label": "Animation 1",
-                  "value": "animation_1"
-                },
-                {
-                  "label": "Animation 2",
-                  "value": "animation_2"
-                },
-                {
-                  "label": "Animation 3",
-                  "value": "animation_3"
-                }
-              ],
-              "default": "animation_1"
-            },
-            {
-              "type": "header",
-              "content": "Color"
-            },
-            {
-              "type": "checkbox",
-              "id": "block_color_enable",
-              "label": "Color Enable",
-              "default": false,
-              "info": "Enable the field for color customization"
-            },
-            {
-              "type": "color",
-              "id": "title_color",
-              "label": "Title Color",
-              "default": "#222"
-            },
-            {
-              "type": "color",
-              "id": "sub_title_color",
-              "label": "Sub Title Color",
-              "default": "#555"
-            },
-            {
-              "type": "color",
-              "id": "button_text_color",
-              "label": "Button text Color",
-              "default": "#fff"
-            },
-            {
-              "type": "color",
-              "id": "button_bg_color",
-              "label": "Button BG Color",
-              "default": "#c29958"
-            },
-            {
-              "type": "color",
-              "id": "button_text_hover_color",
-              "label": "Button text Hover Color",
-              "default": "#fff"
-            },
-            {
-              "type": "color",
-              "id": "button_bg_hover_color",
-              "label": "Button BG Hover Color",
-              "default": "#222222"
-            },
-            {
-              "type": "header",
-              "content": "Content Spacing"
-            },
-            {
-              "type": "range",
-              "id": "content_padding_top",
-              "min": 0,
-              "max": 100,
-              "step": 5,
-              "label": "Content Padding Top",
-              "unit": "px",
-              "default": 40
-            },
-            {
-              "type": "range",
-              "id": "content_padding_bottom",
-              "min": 0,
-              "max": 100,
-              "step": 5,
-              "label": "Content Padding Bottom",
-              "unit": "px",
-              "default": 40
-            },
-            {
-              "type": "range",
-              "id": "content_padding_left",
-              "min": 0,
-              "max": 100,
-              "step": 5,
-              "label": "Content Padding Left",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "content_padding_right",
-              "min": 0,
-              "max": 100,
-              "step": 5,
-              "label": "Content Padding Right",
-              "unit": "px",
-              "default": 0
-            }
-          ]
-        },
-        {
-          "type": "section_padding",
-          "name": "Section Padding",
-          "limit": 1,
-          "settings": [
-            {
-              "type": "header",
-              "content": "Large/Desktop Device"
-            },
-            {
-              "type": "range",
-              "id": "section_padding_top",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_padding_bottom",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Bottom",
-              "unit": "px",
-              "default": 80
-            },
-            {
-              "type": "header",
-              "content": "Tablet Device"
-            },
-            {
-              "type": "range",
-              "id": "section_padding_top_md",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_padding_bottom_md",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Bottom",
-              "unit": "px",
-              "default": 80
-            },
-            {
-              "type": "header",
-              "content": "Mobile Device"
-            },
-            {
-              "type": "range",
-              "id": "section_padding_top_xs",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_padding_bottom_xs",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Padding Bottom",
-              "unit": "px",
-              "default": 60
-            }
-          ]
-        },
-        {
-          "type": "section_margin",
-          "name": "Section Margin",
-          "limit": 1,
-          "settings": [
-            {
-              "type": "header",
-              "content": "Large/Desktop Device"
-            },
-            {
-              "type": "range",
-              "id": "section_margin_top",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_margin_bottom",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Bottom",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "header",
-              "content": "Tablet Device"
-            },
-            {
-              "type": "range",
-              "id": "section_margin_top_md",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_margin_bottom_md",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Bottom",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "header",
-              "content": "Mobile Device"
-            },
-            {
-              "type": "range",
-              "id": "section_margin_top_xs",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Top",
-              "unit": "px",
-              "default": 0
-            },
-            {
-              "type": "range",
-              "id": "section_margin_bottom_xs",
-              "min": 0,
-              "max": 150,
-              "step": 5,
-              "label": "Margin Bottom",
-              "unit": "px",
-              "default": 0
-            }
-          ]
-        }
-      ],
-      "presets": [
-        {
-          "name": "Hero Banner",
-          "category": "1. hero sections",
-          "blocks":[
-            {
-              "type": "banner"
-            },
-            {
-              "type": "section_padding"
-            }
-          ]
-        }
-      ],
-      "disabled_on": {
-        "groups": ["header", "footer"]
-      }
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "label": "Content Width",
+      "default": 500,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_offset",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "label": "Content Offset",
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "label": "Bottom Margin",
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "label": "Heading Size",
+      "default": 42,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "label": "Text Size",
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#c29958"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_enable",
+      "label": "Enable Overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0.0,
+      "max": 0.9,
+      "step": 0.1,
+      "label": "Overlay Opacity",
+      "default": 0.3
     }
-    {% endschema %}
-
-{%- assign lcp_image = section.blocks[0].settings.banner_image -%}
-{%- if lcp_image != blank -%}
-  <link rel="preload" as="image" href="{{ lcp_image | img_url: '1800x' }}" fetchpriority="high">
-{%- endif -%}
-
-<link rel="preload" href="{{ 'style.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
-<link rel="preload" href="{{ 'vendor.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}"></noscript>
+  ],
+  "presets": [
+    {
+      "name": "Lightweight Hero",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}
