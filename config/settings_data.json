@@ -19,7 +19,7 @@
     "heading_animated_enable": false,
     "ajax_search_enable": false,
     "enable_preloader": true,
-    "preloader_style": "Style_21",
+    "preloader_style": "Style_5",
     "preloader_image": "shopify://shop_images/157.gif",
     "preloader_bg": "#ffffff",
     "preloader_color": "#b74d3a",
