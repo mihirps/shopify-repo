@@ -210,6 +210,82 @@
         "content_color": "#555555"
       }
     },
+    "1625918594dffbc2ab": {
+      "type": "services",
+      "blocks": {
+        "1625918594dffbc2ab-0": {
+          "type": "service",
+          "settings": {
+            "service_icon": "plane",
+            "service_title": "Free Shipping",
+            "service_content": "<p>Free shipping all order</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "1625918594dffbc2ab-2": {
+          "type": "service",
+          "settings": {
+            "service_icon": "help2",
+            "service_title": "Support 24/7",
+            "service_content": "<p>Support 24 hours a day</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "1625918594dffbc2ab-1": {
+          "type": "service",
+          "settings": {
+            "service_icon": "back",
+            "service_title": "Money Return",
+            "service_content": "<p>30 days for free return</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "1625918594dffbc2ab-3": {
+          "type": "service",
+          "settings": {
+            "service_icon": "credit",
+            "service_title": "100% Payment Secure",
+            "service_content": "<p>We ensure secure payment</p>",
+            "service_column": 3,
+            "service_column_md": 6,
+            "service_column_sm": 6
+          }
+        },
+        "1625918594dffbc2ab-4": {
+          "type": "section_padding",
+          "settings": {
+            "section_padding_top": 0,
+            "section_padding_bottom": 60,
+            "section_padding_top_md": 0,
+            "section_padding_bottom_md": 50,
+            "section_padding_top_xs": 0,
+            "section_padding_bottom_xs": 40
+          }
+        }
+      },
+      "block_order": [
+        "1625918594dffbc2ab-0",
+        "1625918594dffbc2ab-2",
+        "1625918594dffbc2ab-1",
+        "1625918594dffbc2ab-3",
+        "1625918594dffbc2ab-4"
+      ],
+      "settings": {
+        "services_enable": true,
+        "section_color_enable": false,
+        "icon_color": "#c29958",
+        "title_color": "#222222",
+        "content_color": "#777777",
+        "border_bottom_enable": false,
+        "border_color": "#efefef"
+      }
+    },
     "1625918618b3579866": {
       "type": "tab-with-product",
       "blocks": {
@@ -673,82 +749,6 @@
         "autoplay_speed": 7000
       }
     },
-    "1625918594dffbc2ab": {
-      "type": "services",
-      "blocks": {
-        "1625918594dffbc2ab-0": {
-          "type": "service",
-          "settings": {
-            "service_icon": "plane",
-            "service_title": "Free Shipping",
-            "service_content": "<p>Free shipping all order</p>",
-            "service_column": 3,
-            "service_column_md": 6,
-            "service_column_sm": 6
-          }
-        },
-        "1625918594dffbc2ab-2": {
-          "type": "service",
-          "settings": {
-            "service_icon": "help2",
-            "service_title": "Support 24/7",
-            "service_content": "<p>Support 24 hours a day</p>",
-            "service_column": 3,
-            "service_column_md": 6,
-            "service_column_sm": 6
-          }
-        },
-        "1625918594dffbc2ab-1": {
-          "type": "service",
-          "settings": {
-            "service_icon": "back",
-            "service_title": "Money Return",
-            "service_content": "<p>30 days for free return</p>",
-            "service_column": 3,
-            "service_column_md": 6,
-            "service_column_sm": 6
-          }
-        },
-        "1625918594dffbc2ab-3": {
-          "type": "service",
-          "settings": {
-            "service_icon": "credit",
-            "service_title": "100% Payment Secure",
-            "service_content": "<p>We ensure secure payment</p>",
-            "service_column": 3,
-            "service_column_md": 6,
-            "service_column_sm": 6
-          }
-        },
-        "1625918594dffbc2ab-4": {
-          "type": "section_padding",
-          "settings": {
-            "section_padding_top": 0,
-            "section_padding_bottom": 60,
-            "section_padding_top_md": 0,
-            "section_padding_bottom_md": 50,
-            "section_padding_top_xs": 0,
-            "section_padding_bottom_xs": 40
-          }
-        }
-      },
-      "block_order": [
-        "1625918594dffbc2ab-0",
-        "1625918594dffbc2ab-2",
-        "1625918594dffbc2ab-1",
-        "1625918594dffbc2ab-3",
-        "1625918594dffbc2ab-4"
-      ],
-      "settings": {
-        "services_enable": true,
-        "section_color_enable": false,
-        "icon_color": "#c29958",
-        "title_color": "#222222",
-        "content_color": "#777777",
-        "border_bottom_enable": false,
-        "border_color": "#efefef"
-      }
-    },
     "162597684695b2fecb": {
       "type": "multiple-banner",
       "blocks": {
@@ -876,51 +876,56 @@
     },
     "hero_banner_YGiAfM": {
       "type": "Hero-banner",
-      "blocks": {
-        "banner_RcLaUP": {
-          "type": "banner",
-          "settings": {
-            "banner_image": "shopify://shop_images/hero-web.webp",
-            "banner_image_mobile": "shopify://shop_images/hero-mobile.webp",
-            "banner_title": "Banner Title",
-            "banner_content": "Banner content here",
-            "banner_button_title": "Shop Now",
-            "banner_button_url": "",
-            "image_link_enable": false,
-            "content_position": "content_left",
-            "content_animation": "animation_1",
-            "block_color_enable": false,
-            "title_color": "#222222",
-            "sub_title_color": "#555555",
-            "button_text_color": "#ffffff",
-            "button_bg_color": "#c29958",
-            "button_text_hover_color": "#ffffff",
-            "button_bg_hover_color": "#222222"
-          }
-        },
-        "section_padding_hKdKgy": {
-          "type": "section_padding",
-          "settings": {
-            "section_padding_top": 0,
-            "section_padding_bottom": 80,
-            "section_padding_top_md": 0,
-            "section_padding_bottom_md": 80,
-            "section_padding_top_xs": 0,
-            "section_padding_bottom_xs": 60
-          }
-        }
-      },
-      "block_order": [
-        "banner_RcLaUP",
-        "section_padding_hKdKgy"
-      ],
       "disabled": true,
       "name": "Hero Banner",
       "settings": {
-        "banner_large_height_enable": false,
-        "section_color_enable": false,
+        "title": "Banner Title",
+        "text": "Add some descriptive text to your banner",
+        "button_label": "Shop Now",
+        "button_url": "",
+        "height_desktop": 450,
+        "height_tablet": 350,
+        "height_mobile": 300,
+        "content_align": "left",
+        "content_width": 500,
+        "content_offset": 40,
+        "margin_bottom": 0,
+        "title_size": 42,
+        "text_size": 18,
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_bg": "#c29958",
+        "button_color": "#ffffff",
+        "overlay_enable": true,
         "overlay_color": "rgba(0,0,0,0)",
-        "overlay_color_opatity": 0
+        "overlay_opacity": 0.3
+      }
+    },
+    "hero_banner_jpF4bR": {
+      "type": "Hero-banner",
+      "name": "Lightweight Hero",
+      "settings": {
+        "image": "shopify://shop_images/hero-web.webp",
+        "title": "Banner Title",
+        "text": "Add some descriptive text to your banner",
+        "button_label": "shop now",
+        "button_url": "",
+        "height_desktop": 650,
+        "height_tablet": 350,
+        "height_mobile": 500,
+        "content_align": "left",
+        "content_width": 500,
+        "content_offset": 40,
+        "margin_bottom": 0,
+        "title_size": 42,
+        "text_size": 18,
+        "title_color": "#000000",
+        "text_color": "#222222",
+        "button_bg": "#c29958",
+        "button_color": "#ffffff",
+        "overlay_enable": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.3
       }
     }
   },
@@ -938,6 +943,7 @@
     "1625978891d6a60717",
     "162597684695b2fecb",
     "newsletter_subscribe_fyadwd",
-    "hero_banner_YGiAfM"
+    "hero_banner_YGiAfM",
+    "hero_banner_jpF4bR"
   ]
 }
