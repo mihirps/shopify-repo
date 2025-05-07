@@ -9,6 +9,41 @@
  */
 {
   "sections": {
+    "hero_banner_jpF4bR": {
+      "type": "Hero-banner",
+      "name": "Lightweight Hero",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_tablet": 0,
+        "padding_bottom_tablet": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "image": "shopify://shop_images/hero-web.webp",
+        "image_tablet": "shopify://shop_images/hero-web.webp",
+        "image_mobile": "shopify://shop_images/hero-mobile.webp",
+        "title": "Banner Title",
+        "text": "Add some descriptive text to your banner",
+        "button_label": "shop now",
+        "button_url": "shopify://collections",
+        "height_desktop": 650,
+        "height_tablet": 550,
+        "height_mobile": 500,
+        "content_align": "left",
+        "content_width": 500,
+        "content_offset": 40,
+        "margin_bottom": 50,
+        "title_size": 42,
+        "text_size": 18,
+        "title_color": "#000000",
+        "text_color": "#222222",
+        "button_bg": "#b74d3a",
+        "button_color": "#ffffff",
+        "overlay_enable": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.3
+      }
+    },
     "16259186029869ff02": {
       "type": "slideshow",
       "blocks": {
@@ -93,6 +128,7 @@
         "c8cd3857-aa4f-4bf7-911f-c942c8a74e46",
         "16259186029869ff02-2"
       ],
+      "disabled": true,
       "settings": {
         "slider_large_height_enable": true,
         "section_color_enable": true,
@@ -873,44 +909,10 @@
         "email_placeholder": "Enter your e-mail",
         "button_title": "Subscribe!"
       }
-    },
-    "hero_banner_jpF4bR": {
-      "type": "Hero-banner",
-      "name": "Lightweight Hero",
-      "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_tablet": 0,
-        "padding_bottom_tablet": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "image": "shopify://shop_images/hero-web.webp",
-        "image_tablet": "shopify://shop_images/hero-web.webp",
-        "image_mobile": "shopify://shop_images/hero-mobile.webp",
-        "title": "Banner Title",
-        "text": "Add some descriptive text to your banner",
-        "button_label": "shop now",
-        "button_url": "shopify://collections",
-        "height_desktop": 650,
-        "height_tablet": 550,
-        "height_mobile": 500,
-        "content_align": "left",
-        "content_width": 500,
-        "content_offset": 40,
-        "margin_bottom": 50,
-        "title_size": 42,
-        "text_size": 18,
-        "title_color": "#000000",
-        "text_color": "#222222",
-        "button_bg": "#b74d3a",
-        "button_color": "#ffffff",
-        "overlay_enable": false,
-        "overlay_color": "#000000",
-        "overlay_opacity": 0.3
-      }
     }
   },
   "order": [
+    "hero_banner_jpF4bR",
     "16259186029869ff02",
     "services_2_LgxbVe",
     "162755092131163f43",
@@ -923,7 +925,6 @@
     "162597869786f671cc",
     "1625978891d6a60717",
     "162597684695b2fecb",
-    "newsletter_subscribe_fyadwd",
-    "hero_banner_jpF4bR"
+    "newsletter_subscribe_fyadwd"
   ]
 }
