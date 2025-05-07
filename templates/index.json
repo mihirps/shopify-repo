@@ -171,6 +171,7 @@
         "service_rV3HEV",
         "section_padding_VQhm3d"
       ],
+      "disabled": true,
       "name": "Service 2",
       "settings": {
         "section_title": "services",
@@ -927,6 +928,7 @@
     "16259186029869ff02",
     "services_2_LgxbVe",
     "162755092131163f43",
+    "1625918594dffbc2ab",
     "1625918618b3579866",
     "16259758891a8812ef",
     "162597728015accaf6",
@@ -934,7 +936,6 @@
     "16259780134af03526",
     "162597869786f671cc",
     "1625978891d6a60717",
-    "1625918594dffbc2ab",
     "162597684695b2fecb",
     "newsletter_subscribe_fyadwd",
     "hero_banner_YGiAfM"
