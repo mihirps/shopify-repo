@@ -2,8 +2,8 @@
 <!-- google fonts -->
 {% comment %} <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet"> {% endcomment %}
 <!-- Put all third-party CSS files in the vendor.css file and minify the files -->
-{{ 'vendor.css' | asset_url | stylesheet_tag }}
-{{ 'slick.min.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'vendor.css' | asset_url | stylesheet_tag }}
+{{ 'slick.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
 <!-- Link your style.css and responsive.css files below -->
 {{ 'style.css' | asset_url | stylesheet_tag }}
 {%- if settings.dark_enable -%}
