@@ -2,15 +2,15 @@
 <!-- google fonts -->
 {% comment %} <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet"> {% endcomment %}
 <!-- Put all third-party CSS files in the vendor.css file and minify the files -->
-{% comment %} {{ 'vendor.css' | asset_url | stylesheet_tag }}
-{{ 'slick.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'vendor.css' | asset_url | stylesheet_tag }}
+{{ 'slick.min.css' | asset_url | stylesheet_tag }}
 <!-- Link your style.css and responsive.css files below -->
-{% comment %} {{ 'style.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'style.css' | asset_url | stylesheet_tag }}
 {%- if settings.dark_enable -%}
 {{ 'dark.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 <!-- Make all your dynamic CSS and Color calls here -->
-{% comment %} {{ 'skin-and-color.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'skin-and-color.css' | asset_url | stylesheet_tag }}
 {%- if settings.theme_custom_css_style != '' -%}
 {{ settings.theme_custom_css_style }}
 {%- endif -%}
