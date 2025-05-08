@@ -10,7 +10,7 @@
 {{ 'dark.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 <!-- Make all your dynamic CSS and Color calls here -->
-{{ 'skin-and-color.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'skin-and-color.css' | asset_url | stylesheet_tag }} {% endcomment %}
 {%- if settings.theme_custom_css_style != '' -%}
 {{ settings.theme_custom_css_style }}
 {%- endif -%}
