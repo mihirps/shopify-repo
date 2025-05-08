@@ -233,10 +233,6 @@
           {
             "value": "Style_20",
             "label": "Style 20"
-          },
-          {
-            "value": "Style_21",
-            "label": "Style 21"
           }
         ],
         "default": "Style_15"
