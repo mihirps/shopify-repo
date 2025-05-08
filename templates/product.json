@@ -1,1 +1,233 @@
-{"sections":{"main":{"type":"product-template","blocks":{"9312e3f6-6ea5-47c2-8de6-65b2a242596d":{"type":"vendor","settings":{"prev_title":"Prev","next_title":"Next"}},"2af33e7f-c4d7-4fc7-a629-da5a3beede57":{"type":"title","settings":{}},"2867c2eb-5313-4794-bfc5-d28a84db1eae":{"type":"sku","settings":{"product_sku_title":"SKU:"}},"f3bc9fdf-c553-4172-9a9c-d510816809ab":{"type":"price","settings":{}},"b1903f6f-d946-4595-80f9-8089bebfde53":{"type":"inventory","settings":{"availability_title":"Availability:","in_stock_title":"In stock","left_in_stock_title":"left in stock","out_of_stock_title":"Out of stock"}},"2dd897e6-7d08-47fe-a008-01bbb63a3e46":{"type":"description","disabled":true,"settings":{"product_description_handle":"full_description","truncateletter_count_handle":250}},"09343518-f0ae-4add-8159-f680471aa9c8":{"type":"variants","settings":{"product_variant_handle":"product_variant_swatch_option","show_variant_image":true,"swatch_large_image_enable":true,"customer_choose_option_enable":false,"text_transform":"capitalize"}},"9dc59641-1f3a-4fd6-a58b-a6ba5fb62570":{"type":"countdown","settings":{"countdown_heading":"<strong>Hurry up<\/strong>! offer ends in:"}},"b26ccb56-1af6-44f2-800c-287d0cb9e93e":{"type":"action_buttons","settings":{"quantity_title":"qty:","dynamic_checkout_button_enable":true,"buy_it_now_button_title":"","soldout_product_notification_enable":true,"notification_text":"Click <a id=\"notify-me\" href=\"#\"><strong>here<\/strong><\/a> to be notified by email when this product becomes available.","notification_success_message":"Thanks! We will notify you when this product becomes available!","error_text":"Please provide a valid email address.","send_button_title":"Send","compare_button_title":"Compare","contact_form_enable":true,"contact_form_button_title":"Ask about this product","contact_form_title":"Have a question?","name_placeholder":"Name","email_placeholder":"Email","url_placeholder":"Product URL","message_placeholder":"Message","form_button_name":"Send","section_color_enable":false,"buynow_button_text_color":"#ffffff","buynow_button_bg_color":"#000000","buynow_button_text_hover_color":"#ffffff","buynow_button_bg_hover_color":"#c29958"}},"ffe91016-3d5f-4f9c-9ca6-9bf2960f8fc4":{"type":"share_and_payment","settings":{"social_share_enable":true,"payment_option_enable":true,"payment_information":"<p><strong>Guaranteed safe checkout<\/strong><\/p>","payment_icon":"automatic","amazon_payments":true,"american_express":false,"apple_pay":true,"bitcoin":true,"dankort":false,"diners_club":false,"discover":false,"dogecoin":false,"dwolla":false,"Forbrugsforeningen":false,"google_pay":true,"jcb":false,"klarna":false,"litecoin":false,"maestro":false,"master":false,"paypal":true,"shopify_pay":false,"sofort":false,"visa":true}},"6dd0224d-4c91-4440-98eb-5b9638e8fc88":{"type":"complementary","settings":{}}},"block_order":["9312e3f6-6ea5-47c2-8de6-65b2a242596d","2af33e7f-c4d7-4fc7-a629-da5a3beede57","2867c2eb-5313-4794-bfc5-d28a84db1eae","f3bc9fdf-c553-4172-9a9c-d510816809ab","b1903f6f-d946-4595-80f9-8089bebfde53","2dd897e6-7d08-47fe-a008-01bbb63a3e46","09343518-f0ae-4add-8159-f680471aa9c8","9dc59641-1f3a-4fd6-a58b-a6ba5fb62570","b26ccb56-1af6-44f2-800c-287d0cb9e93e","ffe91016-3d5f-4f9c-9ca6-9bf2960f8fc4","6dd0224d-4c91-4440-98eb-5b9638e8fc88"],"settings":{"product_media_enable":false,"content_handle":"content_in_right","product_style":"product_default","product_zoom_enable":true,"zoom_type":"inner","product_popup_enable":true,"view_on_space_title":"View on Space","sticky_cart_enable":true}},"single-product-tab":{"type":"single-product-tab","blocks":{"44120345-9064-4f54-941b-20e5269caf18":{"type":"custom_tab","settings":{"custom_tab_title":"Shipping Policy","custom_tab_handle":"shipping-policy"}},"c72854be-6bf3-401b-af84-36bc66ce9457":{"type":"custom_tab","settings":{"custom_tab_title":"Size Chart","custom_tab_handle":"size-chart"}},"2e26e2a1-0827-43b6-940d-34003ac2c742":{"type":"unique_tab_1","settings":{"unique_tab_title":"Unique Tab Title","unique_description_1":"[unique_description_1] Your content or text here [\/unique_description_1]"}}},"block_order":["44120345-9064-4f54-941b-20e5269caf18","c72854be-6bf3-401b-af84-36bc66ce9457","2e26e2a1-0827-43b6-940d-34003ac2c742"],"settings":{"product_tab_enable":true,"tab_active_handle":"info_tab","product_info_tab_enable":true,"product_info_tab_title":"Description","product_review_tab_enable":true,"product_review_tab_title":"Reviews","product_video_title":"Video","product_comments_enable":false,"product_comments_title":"Comments","product_page_comments_box":"facebook_comment","facebook_comments_post_limit":"10","disqus_shortname":"demo-store"}},"product-recommendations":{"type":"product-recommendations","settings":{"section_title":"Related Product","section_sub_title":"Add related products to weekly lineup","related_product_limit_handle":10,"product_column":4,"product_column_md":3,"product_column_sm":2,"autoplay_true":false,"autoplay_speed":7000}},"recently-viewed-product":{"type":"recently-viewed-product","disabled":true,"settings":{"section_title":"Recently Viewed","section_sub_title":"Recently viewed products","related_product_limit_handle":4,"product_column":4,"product_column_md":3,"product_column_sm":2,"autoplay_true":false,"autoplay_speed":7000}}},"order":["main","single-product-tab","product-recommendations","recently-viewed-product"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "9312e3f6-6ea5-47c2-8de6-65b2a242596d": {
+          "type": "vendor",
+          "settings": {
+            "prev_title": "Prev",
+            "next_title": "Next"
+          }
+        },
+        "2af33e7f-c4d7-4fc7-a629-da5a3beede57": {
+          "type": "title",
+          "settings": {}
+        },
+        "2867c2eb-5313-4794-bfc5-d28a84db1eae": {
+          "type": "sku",
+          "settings": {
+            "product_sku_title": "SKU:"
+          }
+        },
+        "f3bc9fdf-c553-4172-9a9c-d510816809ab": {
+          "type": "price",
+          "settings": {}
+        },
+        "b1903f6f-d946-4595-80f9-8089bebfde53": {
+          "type": "inventory",
+          "settings": {
+            "availability_title": "Availability:",
+            "in_stock_title": "In stock",
+            "left_in_stock_title": "left in stock",
+            "out_of_stock_title": "Out of stock"
+          }
+        },
+        "2dd897e6-7d08-47fe-a008-01bbb63a3e46": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "product_description_handle": "full_description",
+            "truncateletter_count_handle": 250
+          }
+        },
+        "09343518-f0ae-4add-8159-f680471aa9c8": {
+          "type": "variants",
+          "settings": {
+            "product_variant_handle": "product_variant_swatch_option",
+            "show_variant_image": true,
+            "swatch_large_image_enable": true,
+            "customer_choose_option_enable": false,
+            "text_transform": "capitalize"
+          }
+        },
+        "9dc59641-1f3a-4fd6-a58b-a6ba5fb62570": {
+          "type": "countdown",
+          "settings": {
+            "countdown_heading": "<strong>Hurry up</strong>! offer ends in:"
+          }
+        },
+        "b26ccb56-1af6-44f2-800c-287d0cb9e93e": {
+          "type": "action_buttons",
+          "settings": {
+            "quantity_title": "qty:",
+            "dynamic_checkout_button_enable": true,
+            "buy_it_now_button_title": "",
+            "soldout_product_notification_enable": true,
+            "notification_text": "Click <a id=\"notify-me\" href=\"#\"><strong>here</strong></a> to be notified by email when this product becomes available.",
+            "notification_success_message": "Thanks! We will notify you when this product becomes available!",
+            "error_text": "Please provide a valid email address.",
+            "send_button_title": "Send",
+            "compare_button_title": "Compare",
+            "contact_form_enable": true,
+            "contact_form_button_title": "Ask about this product",
+            "contact_form_title": "Have a question?",
+            "name_placeholder": "Name",
+            "email_placeholder": "Email",
+            "url_placeholder": "Product URL",
+            "message_placeholder": "Message",
+            "form_button_name": "Send",
+            "section_color_enable": false,
+            "buynow_button_text_color": "#ffffff",
+            "buynow_button_bg_color": "#000000",
+            "buynow_button_text_hover_color": "#ffffff",
+            "buynow_button_bg_hover_color": "#c29958"
+          }
+        },
+        "ffe91016-3d5f-4f9c-9ca6-9bf2960f8fc4": {
+          "type": "share_and_payment",
+          "settings": {
+            "social_share_enable": true,
+            "payment_option_enable": true,
+            "payment_information": "<p><strong>Guaranteed safe checkout</strong></p>",
+            "payment_icon": "automatic",
+            "amazon_payments": true,
+            "american_express": false,
+            "apple_pay": true,
+            "bitcoin": true,
+            "dankort": false,
+            "diners_club": false,
+            "discover": false,
+            "dogecoin": false,
+            "dwolla": false,
+            "Forbrugsforeningen": false,
+            "google_pay": true,
+            "jcb": false,
+            "klarna": false,
+            "litecoin": false,
+            "maestro": false,
+            "master": false,
+            "paypal": true,
+            "shopify_pay": false,
+            "sofort": false,
+            "visa": true
+          }
+        },
+        "6dd0224d-4c91-4440-98eb-5b9638e8fc88": {
+          "type": "complementary",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "9312e3f6-6ea5-47c2-8de6-65b2a242596d",
+        "2af33e7f-c4d7-4fc7-a629-da5a3beede57",
+        "2867c2eb-5313-4794-bfc5-d28a84db1eae",
+        "f3bc9fdf-c553-4172-9a9c-d510816809ab",
+        "b1903f6f-d946-4595-80f9-8089bebfde53",
+        "2dd897e6-7d08-47fe-a008-01bbb63a3e46",
+        "09343518-f0ae-4add-8159-f680471aa9c8",
+        "9dc59641-1f3a-4fd6-a58b-a6ba5fb62570",
+        "b26ccb56-1af6-44f2-800c-287d0cb9e93e",
+        "ffe91016-3d5f-4f9c-9ca6-9bf2960f8fc4",
+        "6dd0224d-4c91-4440-98eb-5b9638e8fc88"
+      ],
+      "settings": {
+        "product_media_enable": false,
+        "content_handle": "content_in_right",
+        "product_style": "product_default",
+        "product_zoom_enable": true,
+        "zoom_type": "inner",
+        "product_popup_enable": true,
+        "view_on_space_title": "View on Space",
+        "sticky_cart_enable": true
+      }
+    },
+    "single-product-tab": {
+      "type": "single-product-tab",
+      "blocks": {
+        "44120345-9064-4f54-941b-20e5269caf18": {
+          "type": "custom_tab",
+          "settings": {
+            "custom_tab_title": "Shipping Policy",
+            "custom_tab_handle": "shipping-policy"
+          }
+        },
+        "c72854be-6bf3-401b-af84-36bc66ce9457": {
+          "type": "custom_tab",
+          "settings": {
+            "custom_tab_title": "Size Chart",
+            "custom_tab_handle": "size-chart"
+          }
+        },
+        "2e26e2a1-0827-43b6-940d-34003ac2c742": {
+          "type": "unique_tab_1",
+          "settings": {
+            "unique_tab_title": "Unique Tab Title",
+            "unique_description_1": "[unique_description_1] Your content or text here [/unique_description_1]"
+          }
+        }
+      },
+      "block_order": [
+        "44120345-9064-4f54-941b-20e5269caf18",
+        "c72854be-6bf3-401b-af84-36bc66ce9457",
+        "2e26e2a1-0827-43b6-940d-34003ac2c742"
+      ],
+      "settings": {
+        "product_tab_enable": true,
+        "tab_active_handle": "info_tab",
+        "product_info_tab_enable": true,
+        "product_info_tab_title": "Description",
+        "product_review_tab_enable": true,
+        "product_review_tab_title": "Reviews",
+        "product_video_title": "Video",
+        "product_comments_enable": false,
+        "product_comments_title": "Comments",
+        "product_page_comments_box": "facebook_comment",
+        "facebook_comments_post_limit": "10",
+        "disqus_shortname": "demo-store"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "section_title": "Related Product",
+        "section_sub_title": "Add related products to weekly lineup",
+        "related_product_limit_handle": 10,
+        "product_column": 4,
+        "product_column_md": 3,
+        "product_column_sm": 2,
+        "autoplay_true": false,
+        "autoplay_speed": 7000
+      }
+    },
+    "recently-viewed-product": {
+      "type": "recently-viewed-product",
+      "disabled": true,
+      "settings": {
+        "section_title": "Recently Viewed",
+        "section_sub_title": "Recently viewed products",
+        "related_product_limit_handle": 4,
+        "product_column": 4,
+        "product_column_md": 3,
+        "product_column_sm": 2,
+        "autoplay_true": false,
+        "autoplay_speed": 7000
+      }
+    }
+  },
+  "order": [
+    "main",
+    "single-product-tab",
+    "product-recommendations",
+    "recently-viewed-product"
+  ]
+}

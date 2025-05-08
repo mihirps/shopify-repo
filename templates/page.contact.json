@@ -1,1 +1,90 @@
-{"sections":{"main":{"type":"contact-template","disabled":true,"settings":{"page_title_enable":true,"page_content_enable":true}},"google-map":{"type":"google-map","blocks":{"ddb50b1b-559b-459a-ab0c-0de34c7419ed":{"type":"section_padding","settings":{"section_padding_top":80,"section_padding_bottom":80,"section_padding_top_md":80,"section_padding_bottom_md":80,"section_padding_top_xs":60,"section_padding_bottom_xs":60}}},"block_order":["ddb50b1b-559b-459a-ab0c-0de34c7419ed"],"settings":{"google_map_enable":true,"map_api_key":"AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8","latitude":"23.7637313","longitude":"90.4294556","google_map_code":""}},"contact-information":{"type":"contact-information","blocks":{"bcb38650-090f-4cbe-afc9-c0aa433c120e":{"type":"section_padding","settings":{"section_padding_top":0,"section_padding_bottom":80,"section_padding_top_md":0,"section_padding_bottom_md":80,"section_padding_top_xs":0,"section_padding_bottom_xs":60}}},"block_order":["bcb38650-090f-4cbe-afc9-c0aa433c120e"],"settings":{"contact_infomation":true,"contact_form":true,"contact_form_title":"Tell Us Your Project","name_placeholder":"Name *","email_placeholder":"Email *","phone_placeholder":"Phone","subject_placeholder":"Subject","message_placeholder":"Message","form_button_name":"Send Message","contact_address":true,"contact_address_title":"Contact Us","contact_content":"<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.<\/p>","contact_address_1":"Address : No 40 Baria Sreet 133\/2 NewYork City","contact_mail":"E-mail: info@yourdomain.com","contact_number":"+88013245657","schedule_title":"Working Hours","schedule_content":"<p>Monday – Saturday:08AM – 22PM<\/p>"}}},"order":["main","google-map","contact-information"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "contact-template",
+      "disabled": true,
+      "settings": {
+        "page_title_enable": true,
+        "page_content_enable": true
+      }
+    },
+    "google-map": {
+      "type": "google-map",
+      "blocks": {
+        "ddb50b1b-559b-459a-ab0c-0de34c7419ed": {
+          "type": "section_padding",
+          "settings": {
+            "section_padding_top": 80,
+            "section_padding_bottom": 80,
+            "section_padding_top_md": 80,
+            "section_padding_bottom_md": 80,
+            "section_padding_top_xs": 60,
+            "section_padding_bottom_xs": 60
+          }
+        }
+      },
+      "block_order": [
+        "ddb50b1b-559b-459a-ab0c-0de34c7419ed"
+      ],
+      "settings": {
+        "google_map_enable": true,
+        "map_api_key": "AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8",
+        "latitude": "23.7637313",
+        "longitude": "90.4294556",
+        "google_map_code": ""
+      }
+    },
+    "contact-information": {
+      "type": "contact-information",
+      "blocks": {
+        "bcb38650-090f-4cbe-afc9-c0aa433c120e": {
+          "type": "section_padding",
+          "settings": {
+            "section_padding_top": 0,
+            "section_padding_bottom": 80,
+            "section_padding_top_md": 0,
+            "section_padding_bottom_md": 80,
+            "section_padding_top_xs": 0,
+            "section_padding_bottom_xs": 60
+          }
+        }
+      },
+      "block_order": [
+        "bcb38650-090f-4cbe-afc9-c0aa433c120e"
+      ],
+      "settings": {
+        "contact_infomation": true,
+        "contact_form": true,
+        "contact_form_title": "Tell Us Your Project",
+        "name_placeholder": "Name *",
+        "email_placeholder": "Email *",
+        "phone_placeholder": "Phone",
+        "subject_placeholder": "Subject",
+        "message_placeholder": "Message",
+        "form_button_name": "Send Message",
+        "contact_address": true,
+        "contact_address_title": "Contact Us",
+        "contact_content": "<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>",
+        "contact_address_1": "Address : No 40 Baria Sreet 133/2 NewYork City",
+        "contact_mail": "E-mail: info@yourdomain.com",
+        "contact_number": "+88013245657",
+        "schedule_title": "Working Hours",
+        "schedule_content": "<p>Monday – Saturday:08AM – 22PM</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "google-map",
+    "contact-information"
+  ]
+}
